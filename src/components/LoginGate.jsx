@@ -3,11 +3,41 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function LoginGate({ children }) {
   const [dob, setDob] = useState('')
+  const [dobInput, setDobInput] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem('zpf_logged_in') === 'true'
+    return sessionStorage.getItem('zpf_logged_in') === 'true'
   })
+
+  // Format DOB input as DD - MM - YYYY as the user types
+  const handleDobInputChange = (e) => {
+    let value = e.target.value.replace(/\D/g, '') // remove non-digits
+    if (value.length > 8) value = value.slice(0, 8) // max 8 digits (DDMMYYYY)
+    
+    let formatted = ''
+    if (value.length > 0) {
+      formatted += value.slice(0, 2)
+    }
+    if (value.length > 2) {
+      formatted += ' - ' + value.slice(2, 4)
+    }
+    if (value.length > 4) {
+      formatted += ' - ' + value.slice(4, 8)
+    }
+    
+    setDobInput(formatted)
+    
+    // Update dob in YYYY-MM-DD format for matching the credentials
+    if (value.length === 8) {
+      const d = value.slice(0, 2)
+      const m = value.slice(2, 4)
+      const y = value.slice(4, 8)
+      setDob(`${y}-${m}-${d}`)
+    } else {
+      setDob('')
+    }
+  }
 
   // Handle keypad taps
   const handleKeyPress = (num) => {
@@ -27,24 +57,41 @@ export default function LoginGate({ children }) {
     setPassword('')
   }
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault()
     setError('')
 
-    const correctDob = '1995-08-15'
-    const correctPassword = '7777'
+    if (!dob) {
+      setError('Please enter a valid Date of Birth (DD - MM - YYYY).')
+      return
+    }
 
-    if (dob === correctDob && password === correctPassword) {
-      localStorage.setItem('zpf_logged_in', 'true')
-      setIsAuthenticated(true)
-    } else {
-      setError('Access Denied. Check DOB or Passcode.')
-      // Reset passcode on error to let user re-try
+    try {
+      const response = await fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ dob, passcode: password }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        sessionStorage.setItem('zpf_logged_in', 'true')
+        setIsAuthenticated(true)
+      } else {
+        setError(data.message || 'Access Denied. Check DOB or Passcode.')
+        setPassword('')
+      }
+    } catch (err) {
+      setError('Connection error. Please ensure the backend server is running.')
       setPassword('')
     }
   }
 
-  if (isAuthenticated) {
+  const isAdminPath = window.location.pathname === '/admin'
+  if (isAuthenticated || isAdminPath) {
     return <>{children}</>
   }
 
@@ -101,16 +148,17 @@ export default function LoginGate({ children }) {
           </div>
 
           <form onSubmit={handleLoginSubmit} className="login-form mt-4">
-            {/* Step 1: DOB picker */}
+            {/* Step 1: DOB text input */}
             <div className="form-group mb-4">
               <label className="form-label">Date of Birth</label>
               <div className="input-group-custom">
                 <i className="bi bi-calendar3 input-icon"></i>
                 <input
-                  type="date"
+                  type="text"
                   className="form-control-custom"
-                  value={dob}
-                  onChange={(e) => setDob(e.target.value)}
+                  placeholder="DD - MM - YYYY"
+                  value={dobInput}
+                  onChange={handleDobInputChange}
                   required
                 />
               </div>

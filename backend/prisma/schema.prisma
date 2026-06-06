@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model SanctuaryUser {
+  id        Int      @id @default(autoincrement())
+  dob       String   // Format: "YYYY-MM-DD"
+  passcode  String   // e.g. "7777"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String   // Hashed password
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

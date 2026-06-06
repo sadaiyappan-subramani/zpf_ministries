@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import LoginGate from './components/LoginGate'
+import Admin from './pages/Admin'
 
 // ScrollRestoration component to scroll to top on page change
 function ScrollToTop() {
@@ -65,6 +66,20 @@ function AnimatedRoutes() {
               className="page-wrapper"
             >
               <Contact />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/admin" 
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="page-wrapper"
+            >
+              <Admin />
             </motion.div>
           } 
         />

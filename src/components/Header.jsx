@@ -63,6 +63,21 @@ export default function Header() {
               Contact
             </NavLink>
           </li>
+          {sessionStorage.getItem('zpf_logged_in') === 'true' && (
+            <li>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault()
+                  sessionStorage.removeItem('zpf_logged_in')
+                  window.location.reload()
+                }}
+                style={{ color: '#e74c3c', fontWeight: 'bold' }}
+              >
+                Logout
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
       
