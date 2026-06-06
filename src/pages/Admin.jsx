@@ -118,7 +118,8 @@ export default function Admin() {
     setError('')
 
     try {
-      const response = await fetch(`http://localhost:3000/admin/users/${selectedUser.id}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+      const response = await fetch(`${apiUrl}/admin/users/${selectedUser.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -150,7 +151,8 @@ export default function Admin() {
     setError('')
 
     try {
-      const response = await fetch(`http://localhost:3000/admin/users/${userId}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+      const response = await fetch(`${apiUrl}/admin/users/${userId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${adminToken}`,
@@ -198,7 +200,8 @@ export default function Admin() {
     setLoading(true)
 
     try {
-      const response = await fetch('http://localhost:3000/auth/admin/login', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+      const response = await fetch(`${apiUrl}/auth/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -317,9 +320,12 @@ export default function Admin() {
               className="admin-dashboard-panel mt-5"
             >
               <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-                <div>
-                  <h1 className="gold-gradient-text admin-header-title">Sanctuary Registry</h1>
-                  <p className="text-cosmic">Manage database users and review active credentials</p>
+                <div className="d-flex align-items-center gap-4">
+                  <img src="/assets/img/zpf_logo.png" alt="ZPF Logo" style={{ height: '60px', width: 'auto' }} />
+                  <div>
+                    <h1 className="gold-gradient-text admin-header-title">Sanctuary Registry</h1>
+                    <p className="text-cosmic">Manage database users and review active credentials</p>
+                  </div>
                 </div>
                 <div className="d-flex gap-3">
                   <button onClick={() => setShowAddModal(true)} className="btn-primary py-2 px-4" style={{ background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)', color: '#fff' }}>
