@@ -260,11 +260,6 @@ export default function LoginGate({ children }) {
               ENTER SANCTUARY
             </motion.button>
           </form>
-
-          <div className="credential-hint mt-4 text-center">
-            <p className="hint-title">🔑 Access Code Hint</p>
-            <p className="hint-detail">DOB: <code>15-08-1995</code> | Pin: <code>7777</code></p>
-          </div>
         </div>
       </motion.div>
     </div>

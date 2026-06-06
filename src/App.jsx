@@ -102,8 +102,10 @@ function AnimatedRoutes() {
   )
 }
 
-export default function App() {
+// Component to handle layout with conditional Header/Footer based on route
+function AppLayout() {
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const location = useLocation()
 
   // Scroll listener for top button and header scrolling class
   useEffect(() => {
@@ -125,6 +127,8 @@ export default function App() {
     }
   }, [])
 
+  const isAdminPage = location.pathname === '/admin'
+
   const scrollToTop = (e) => {
     e.preventDefault()
     window.scrollTo({
@@ -134,28 +138,35 @@ export default function App() {
   }
 
   return (
-    <Router>
-      <ScrollToTop />
-      
-      <LoginGate>
-        <div className="app-container">
-          <Header />
-          
-          <AnimatedRoutes />
+    <LoginGate>
+      <div className="app-container">
+        {!isAdminPage && <Header />}
 
-          <Footer />
+        <AnimatedRoutes />
 
-          {/* Scroll Top Button */}
-          <a 
-            href="#" 
+        {!isAdminPage && <Footer />}
+
+        {/* Scroll Top Button */}
+        {!isAdminPage && (
+          <a
+            href="#"
             className={`scroll-top d-flex align-items-center justify-content-center ${showScrollTop ? 'active' : ''}`}
             onClick={scrollToTop}
             aria-label="Scroll to top"
           >
             <i className="bi bi-arrow-up-short"></i>
           </a>
-        </div>
-      </LoginGate>
+        )}
+      </div>
+    </LoginGate>
+  )
+}
+
+export default function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppLayout />
     </Router>
   )
 }

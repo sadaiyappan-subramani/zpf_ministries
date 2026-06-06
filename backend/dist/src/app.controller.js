@@ -79,6 +79,7 @@ let AppController = class AppController {
         const admin = await this.prisma.admin.findUnique({
             where: { email: body.email },
         });
+        console.log(admin);
         if (!admin) {
             throw new common_1.UnauthorizedException('Access Denied. Check credentials.');
         }
