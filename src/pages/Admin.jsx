@@ -305,8 +305,6 @@ export default function Admin() {
                       {loading ? 'AUTHENTICATING...' : 'ACCESS DASHBOARD'}
                     </button>
                   </form>
-
-
                 </div>
               </div>
             </motion.div>
@@ -330,9 +328,6 @@ export default function Admin() {
                 <div className="d-flex gap-3">
                   <button onClick={() => setShowAddModal(true)} className="btn-primary py-2 px-4" style={{ background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)', color: '#fff' }}>
                     <i className="bi bi-person-plus-fill me-1"></i> Add User
-                  </button>
-                  <button onClick={fetchUsers} className="btn-secondary py-2 px-3" disabled={loading}>
-                    <i className="bi bi-arrow-clockwise me-1"></i> Refresh
                   </button>
                   <button onClick={handleLogout} className="btn-primary py-2 px-4" style={{ background: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)', color: '#fff' }}>
                     <i className="bi bi-box-arrow-right me-1"></i> Logout

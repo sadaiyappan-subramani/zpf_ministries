@@ -63,7 +63,7 @@ export default function Contact() {
         style={{ 
           position: 'relative', 
           padding: '140px 0 70px', 
-          backgroundImage: 'linear-gradient(180deg, rgba(6,7,10,0.5), rgba(6,7,10,0.95)), url(/assets/img/events/showcase-9.webp)',
+          backgroundImage: 'linear-gradient(180deg, rgba(6,7,10,0.5), rgba(6,7,10,0.95)), url(/assets/img/events/showcase-9.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           textAlign: 'center',

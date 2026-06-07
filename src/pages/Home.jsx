@@ -88,47 +88,6 @@ export default function Home() {
                 </motion.div>
               </div>
             </div>
-
-            {/* Right side floating graphics */}
-            <div className="col-lg-5 text-center d-none d-lg-block">
-              <motion.div 
-                className="hero-visual-card"
-                style={{
-                  position: 'relative',
-                  width: '320px',
-                  height: '320px',
-                  margin: '0 auto',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid var(--border-gold-light)',
-                  borderRadius: '30px',
-                  backdropFilter: 'blur(10px)',
-                  boxShadow: 'var(--gold-glow)',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-                animate={{
-                  y: [0, -12, 0],
-                  rotate: [0, 1, -1, 0]
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 6,
-                  ease: "easeInOut"
-                }}
-              >
-                {/* SVG cross layered inside visual card */}
-                <svg viewBox="0 0 100 100" fill="none" style={{ width: '180px', height: '180px', filter: 'drop-shadow(0 0 8px rgba(229,193,88,0.4))' }}>
-                  <path 
-                    d="M50,12 L50,88 M30,36 L70,36" 
-                    stroke="url(#goldCrossGrad)" 
-                    strokeWidth="2.5" 
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </motion.div>
-            </div>
-
           </div>
         </div>
 
