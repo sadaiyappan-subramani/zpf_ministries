@@ -14,6 +14,7 @@ async function bootstrap() {
       AppModule,
       new ExpressAdapter(server),
     );
+    app.enableCors();
     await app.init();
   }
   return server;

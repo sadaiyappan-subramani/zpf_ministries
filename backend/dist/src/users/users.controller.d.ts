@@ -5,45 +5,15 @@ export declare class UsersController {
     private readonly jwtService;
     constructor(usersService: UsersService, jwtService: JwtService);
     private validateToken;
-    findAll(authHeader: string): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        dob: string;
-        passcode: string;
-    }[]>;
-    findOne(id: string, authHeader: string): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        dob: string;
-        passcode: string;
-    } | null>;
+    findAll(authHeader: string): Promise<any>;
+    findOne(id: string, authHeader: string): Promise<any>;
     create(body: {
         dob: string;
         passcode: string;
-    }, authHeader: string): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        dob: string;
-        passcode: string;
-    }>;
+    }, authHeader: string): Promise<any>;
     update(id: string, body: {
         dob?: string;
         passcode?: string;
-    }, authHeader: string): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        dob: string;
-        passcode: string;
-    }>;
-    remove(id: string, authHeader: string): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        dob: string;
-        passcode: string;
-    }>;
+    }, authHeader: string): Promise<any>;
+    remove(id: string, authHeader: string): Promise<any>;
 }
