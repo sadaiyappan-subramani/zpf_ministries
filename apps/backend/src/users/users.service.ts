@@ -7,7 +7,7 @@ export class UsersService {
 
   async findAll() {
     return this.prisma.sanctuaryUser.findMany({
-      orderBy: { createdAt: 'asc' },
+      orderBy: { id: 'asc' },
     });
   }
 

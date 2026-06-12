@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ShinyText from './bits/ShinyText'
 import SpotlightCard from './bits/SpotlightCard'
@@ -205,6 +206,11 @@ export default function LoginGate({ children }) {
             >
               ENTER SANCTUARY
             </motion.button>
+            <div className="text-center mt-3">
+              <Link to="/admin" className="admin-redirect-link">
+                Are you an Admin? Login here
+              </Link>
+            </div>
           </form>
         </SpotlightCard>
       </motion.div>

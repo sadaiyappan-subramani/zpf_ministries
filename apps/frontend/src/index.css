@@ -4364,3 +4364,32 @@ body.scrolled .header.redesign-header .logo img {
     transform: none !important;
   }
 }
+
+/* Login Gates Redirect Links */
+.admin-redirect-link {
+  color: #bf953f !important;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.admin-redirect-link:hover {
+  color: #fcf6ba !important;
+  text-decoration: underline !important;
+}
+
+.user-redirect-link {
+  color: #2b43b6 !important;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.user-redirect-link:hover {
+  color: #1e339a !important;
+  text-decoration: underline !important;
+}

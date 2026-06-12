@@ -27,6 +27,16 @@ export default function Admin() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [deleteTarget, setDeleteTarget] = useState(null) // { type, id, name }
 
+  // Toggleable passcode visibility state
+  const [visiblePasscodes, setVisiblePasscodes] = useState({}) // { [userId]: boolean }
+
+  const togglePasscodeVisibility = (userId) => {
+    setVisiblePasscodes(prev => ({
+      ...prev,
+      [userId]: !prev[userId]
+    }))
+  }
+
   // Collapsible Dropdowns State
   const [openDropdowns, setOpenDropdowns] = useState({
     about: false,
@@ -66,7 +76,7 @@ export default function Admin() {
   const [newAlbum, setNewAlbum] = useState({
     title: '',
     category: 'church',
-    desc: '',
+    asc: '',
     cover: '/assets/img/all_ministries.png',
     details: '',
     videos: ''
@@ -174,7 +184,7 @@ export default function Admin() {
 
   const handleAddAlbum = (e) => {
     e.preventDefault()
-    if (!newAlbum.title || !newAlbum.desc) {
+    if (!newAlbum.title || !newAlbum.asc) {
       alert('Please fill out both Album Title and Description.')
       return
     }
@@ -198,7 +208,7 @@ export default function Admin() {
     const parsedAlbum = {
       title: newAlbum.title,
       category: newAlbum.category,
-      desc: newAlbum.desc,
+      desc: newAlbum.asc,
       cover: newAlbum.cover || '/assets/img/all_ministries.png'
     }
     if (detailsArr && detailsArr.length > 0) {
@@ -536,6 +546,11 @@ export default function Admin() {
                   >
                     {loading ? 'AUTHENTICATING...' : 'ACCESS DASHBOARD'}
                   </button>
+                  <div className="text-center mt-3">
+                    <Link to="/" className="user-redirect-link">
+                      Are you a User? Login here
+                    </Link>
+                  </div>
                 </form>
               </SpotlightCard>
             </div>
@@ -801,18 +816,10 @@ export default function Admin() {
                                 <th onClick={() => handleSort('id')} style={{ cursor: 'pointer', userSelect: 'none' }}>
                                   Sl.NO {sortField === 'id' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
                                 </th>
-                                <th onClick={() => handleSort('name')} style={{ cursor: 'pointer', userSelect: 'none' }}>
-                                  Name {sortField === 'name' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
-                                </th>
-                                <th onClick={() => handleSort('dob')} style={{ cursor: 'pointer', userSelect: 'none' }}>
-                                  Date of Birth (DOB) {sortField === 'dob' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
-                                </th>
-                                <th onClick={() => handleSort('passcode')} style={{ cursor: 'pointer', userSelect: 'none' }}>
-                                  Security Passcode {sortField === 'passcode' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
-                                </th>
-                                <th onClick={() => handleSort('createdAt')} style={{ cursor: 'pointer', userSelect: 'none' }}>
-                                  Created At {sortField === 'createdAt' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
-                                </th>
+                                <th>Name</th>
+                                <th>Date of Birth (DOB)</th>
+                                <th>Security Passcode</th>
+                                <th>Created At</th>
                                 <th>Actions</th>
                               </tr>
                             </thead>
@@ -828,9 +835,26 @@ export default function Admin() {
                                     </span>
                                   </td>
                                   <td>
-                                    <span className="user-passcode">
-                                      <i className="bi bi-shield-lock-fill me-2" style={{ color: 'var(--accent-gold)' }}></i>
-                                      <code>{user.passcode}</code>
+                                    <span className="user-passcode d-flex align-items-center gap-2">
+                                      <i className="bi bi-shield-lock-fill" style={{ color: '#2b43b6', opacity: 0.8 }}></i>
+                                      <code>{visiblePasscodes[user.id] ? user.passcode : '••••'}</code>
+                                      <button
+                                        type="button"
+                                        onClick={() => togglePasscodeVisibility(user.id)}
+                                        style={{
+                                          background: 'transparent',
+                                          border: 'none',
+                                          padding: 0,
+                                          cursor: 'pointer',
+                                          color: '#718096',
+                                          display: 'inline-flex',
+                                          alignItems: 'center',
+                                          fontSize: '0.95rem'
+                                        }}
+                                        title={visiblePasscodes[user.id] ? "Hide Passcode" : "Show Passcode"}
+                                      >
+                                        <i className={`bi bi-eye${visiblePasscodes[user.id] ? '-slash' : ''}`}></i>
+                                      </button>
                                     </span>
                                   </td>
                                   <td>
@@ -1031,8 +1055,8 @@ export default function Admin() {
                                 <textarea
                                   className="form-control-custom"
                                   placeholder="e.g. Annual celebration and carols."
-                                  value={newAlbum.desc}
-                                  onChange={(e) => setNewAlbum({ ...newAlbum, desc: e.target.value })}
+                                  value={newAlbum.asc}
+                                  onChange={(e) => setNewAlbum({ ...newAlbum, asc: e.target.value })}
                                   required
                                   style={{ paddingLeft: '15px', minHeight: '80px', border: '1px solid rgba(191, 149, 63, 0.2)', borderRadius: '8px' }}
                                 />
@@ -1375,7 +1399,7 @@ export default function Admin() {
                                           </span>
                                         </td>
                                         <td>
-                                          <p style={{ margin: 0, fontSize: '0.85rem', color: '#4a5568' }}>{album.desc || 'YouTube Video Highlight'}</p>
+                                          <p style={{ margin: 0, fontSize: '0.85rem', color: '#4a5568' }}>{album.asc || 'YouTube Video Highlight'}</p>
                                           {album.details && (
                                             <div style={{ fontSize: '0.75rem', color: '#d35400', marginTop: '4px' }}>
                                               Highlights: {album.details.join(', ')}
