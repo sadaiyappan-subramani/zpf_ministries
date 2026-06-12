@@ -331,9 +331,23 @@ body.scrolled .header {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--bg-space);
-  background-image: var(--bg-cosmic);
+  background: none !important;
   padding: 20px;
+}
+
+.login-gate-wrapper::before,
+.admin-page-container.login-mode::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.6) 100%), url('/assets/img/church_light_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(16px); /* Blurs the background image heavily for a soft, abstract church glow */
+  transform: scale(1.08); /* Scales to cover edge blur leakage */
+  z-index: 0;
+  pointer-events: none;
 }
 
 .ambient-background {
@@ -342,6 +356,11 @@ body.scrolled .header {
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
+}
+
+.login-gate-wrapper .ambient-background,
+.admin-page-container.login-mode .ambient-background {
+  display: none; /* Hide dark glowing spheres in light login page */
 }
 
 .glow-sphere {
@@ -374,7 +393,7 @@ body.scrolled .header {
   transform: translate(-50%, -50%);
   width: 450px;
   height: 450px;
-  opacity: 0.05;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 1;
   animation: spinCross 35s infinite linear;
@@ -399,17 +418,18 @@ body.scrolled .header {
   background: var(--gold-metallic);
   border-radius: 24px;
   filter: blur(20px);
-  opacity: 0.15;
+  opacity: 0.08;
 }
 
 .login-card {
   position: relative;
-  background: rgba(14, 16, 26, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--border-gold-light);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(191, 149, 63, 0.28);
   border-radius: 24px;
   padding: 24px 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
 .lock-icon {
@@ -419,24 +439,25 @@ body.scrolled .header {
   -webkit-text-fill-color: transparent;
   display: inline-block;
   margin-bottom: 8px;
-  filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.3));
+  filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.2));
 }
 
 .login-title {
-  color: #fff;
+  color: #1a150e;
   font-size: 1.7rem;
+  font-weight: 700;
 }
 
 .login-subtitle {
-  color: var(--text-cosmic);
+  color: #665b4a;
   font-size: 0.95rem;
 }
 
 .form-label {
   display: block;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.85rem;
-  color: #cdd2e0;
+  color: #554a3a;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -451,17 +472,17 @@ body.scrolled .header {
 .input-icon {
   position: absolute;
   left: 15px;
-  color: var(--accent-gold);
+  color: #bf953f !important;
   font-size: 1.1rem;
 }
 
 .form-control-custom {
-  background-color: rgba(6, 7, 10, 0.85);
-  border: 1px solid rgba(229, 193, 88, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(191, 149, 63, 0.28);
   border-radius: 8px;
   width: 100%;
   padding: 12px 15px 12px 45px;
-  color: #fff;
+  color: #2b2318;
   font-size: 1rem;
   font-family: var(--font-sans);
   transition: all 0.3s ease;
@@ -469,8 +490,13 @@ body.scrolled .header {
 
 .form-control-custom:focus {
   outline: none;
-  border-color: rgba(229, 193, 88, 0.6);
-  box-shadow: var(--gold-glow);
+  border-color: rgba(191, 149, 63, 0.8);
+  box-shadow: 0 0 15px rgba(191, 149, 63, 0.2);
+  background-color: #fff;
+}
+
+.form-control-custom::placeholder {
+  color: rgba(90, 80, 65, 0.45);
 }
 
 .passcode-dots-container {
@@ -481,14 +507,14 @@ body.scrolled .header {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 2px solid rgba(229, 193, 88, 0.4);
+  border: 2px solid rgba(191, 149, 63, 0.4);
   background: transparent;
 }
 
 .passcode-dot.filled {
   background: var(--gold-metallic);
   border-color: transparent;
-  box-shadow: 0 0 12px rgba(229, 193, 88, 0.8);
+  box-shadow: 0 0 12px rgba(191, 149, 63, 0.8);
 }
 
 .keypad-container {
@@ -507,9 +533,9 @@ body.scrolled .header {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  color: #1a150e;
   font-size: 1.25rem;
   font-family: var(--font-sans);
   font-weight: 500;
@@ -522,27 +548,28 @@ body.scrolled .header {
 }
 
 .keypad-btn:hover {
-  background: rgba(229, 193, 88, 0.12);
-  border-color: rgba(229, 193, 88, 0.3);
-  color: var(--accent-gold);
+  background: rgba(191, 149, 63, 0.15);
+  border-color: rgba(191, 149, 63, 0.4);
+  color: #a37c2d;
 }
 
 .keypad-btn.control {
   font-size: 1.1rem;
-  color: rgba(229, 193, 88, 0.7);
-  background: rgba(229, 193, 88, 0.02);
+  color: rgba(191, 149, 63, 0.8);
+  background: rgba(191, 149, 63, 0.05);
 }
 
 .login-error-alert {
-  background-color: rgba(231, 76, 60, 0.15);
-  border: 1px solid rgba(231, 76, 60, 0.3);
-  color: #ff6b6b;
+  background-color: #fdf2f2;
+  border: 1px solid #f5c2c2;
+  color: #c81e1e;
   border-radius: 8px;
   padding: 10px 15px;
   font-size: 0.9rem;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  font-weight: 500;
 }
 
 .btn-login-submit {
@@ -551,17 +578,18 @@ body.scrolled .header {
   border: none;
   border-radius: 30px;
   padding: 14px;
-  color: #050609;
+  color: #1a150e;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 1.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(229, 193, 88, 0.15);
+  box-shadow: 0 4px 15px rgba(191, 149, 63, 0.3);
 }
 
 .btn-login-submit:hover:not(:disabled) {
-  box-shadow: 0 6px 25px rgba(229, 193, 88, 0.4), var(--gold-glow);
+  box-shadow: 0 6px 25px rgba(191, 149, 63, 0.5);
+  transform: translateY(-1px);
 }
 
 .btn-login-submit:disabled {
@@ -570,29 +598,41 @@ body.scrolled .header {
 }
 
 .credential-hint {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(191, 149, 63, 0.05);
   border-radius: 10px;
   padding: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(191, 149, 63, 0.3);
 }
 
 .hint-title {
   font-size: 0.85rem;
-  color: var(--accent-gold);
+  color: #a37c2d;
   margin-bottom: 4px;
   font-weight: 600;
 }
 
 .hint-detail {
   font-size: 0.8rem;
-  color: var(--text-cosmic);
+  color: #554a3a;
 }
 
 .hint-detail code {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.3);
+  color: #1a150e;
+  background-color: rgba(191, 149, 63, 0.15);
   padding: 2px 5px;
   border-radius: 4px;
+}
+
+.admin-page-container.login-mode {
+  background: none !important;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-page-container.login-mode > .container {
+  position: relative;
+  z-index: 10;
 }
 
 /* =======================================================

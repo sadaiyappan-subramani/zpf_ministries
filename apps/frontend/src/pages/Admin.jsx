@@ -407,7 +407,7 @@ export default function Admin() {
   }
 
   return (
-    <div className="admin-page-container">
+    <div className={`admin-page-container ${!adminToken ? 'login-mode' : ''}`}>
       {/* Background celestial animations */}
       <div className="ambient-background">
         <div className="glow-sphere glow-sphere-1"></div>
