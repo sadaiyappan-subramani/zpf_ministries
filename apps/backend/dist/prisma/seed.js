@@ -33,6 +33,9 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv = __importStar(require("dotenv"));
+const path = __importStar(require("path"));
+dotenv.config({ path: path.join(__dirname, '../.env') });
 const client_1 = require("@prisma/client");
 const adapter_pg_1 = require("@prisma/adapter-pg");
 const pg_1 = require("pg");
@@ -249,8 +252,28 @@ async function main() {
             color: 'green'
         }
     ];
+    const defaultCovers = [
+        { id: 'TGjOdhv1Nhw', title: 'Take My Life' },
+        { id: 'Mre7sMP4x8s', title: 'Naan Vaalvathu' },
+        { id: 'nj8tjql_4_Y', title: 'Bless the LORD oh my Soul' },
+        { id: '1E7fi6_eqp8', title: 'Chinna Manusanukkulla' },
+        { id: 't1ve4SPQxU4', title: 'He is my Everything' },
+        { id: 's1vUKbApxdw', title: 'Unga Naamam Uyaranum' },
+        { id: 'TiPelJY81eQ', title: 'Unga Kirubai' },
+        { id: 'Jvk8HFrBrQU', title: 'Aadaram Neerthanaiyya' },
+        { id: 'PLDeUIFs_FU', title: 'Saranadaivaen' },
+        { id: '-BbX46j22V8', title: 'Alangara Vasalalae' },
+        { id: '3wkXygdy7CQ', title: 'Vaanathilum Intha Boomiyilum' },
+        { id: 'WcQ9zZ-9irI', title: 'Um Vasanam En Kangalai' },
+        { id: 'OY1kHI-RNac', title: 'Aathumamae En Ullamae' },
+        { id: 'QqFkV7mOw9I', title: 'Ennai Alithavarae' },
+        { id: 'MYghky75U_Q', title: 'Yehovayeerae' },
+        { id: 'fVvbm4wDAQM', title: 'Unga Naamam Uyaranum (Alt)' },
+        { id: 'C5RPPkk3-Ns', title: 'Maatrumae Ennai Maatrumae' }
+    ];
     const contentsToSeed = [
         { key: 'zion_songs', value: JSON.stringify(defaultSongs) },
+        { key: 'casual_covers', value: JSON.stringify(defaultCovers) },
         { key: 'service_hours', value: JSON.stringify(defaultServices) }
     ];
     for (const item of contentsToSeed) {

@@ -64,7 +64,7 @@ export default function Sermons() {
     fetchSongs()
   }, [])
 
-  const casualCovers = [
+  const defaultCasualCovers = [
     { id: 'TGjOdhv1Nhw', title: 'Take My Life' },
     { id: 'Mre7sMP4x8s', title: 'Naan Vaalvathu' },
     { id: 'nj8tjql_4_Y', title: 'Bless the LORD oh my Soul' },
@@ -83,6 +83,26 @@ export default function Sermons() {
     { id: 'fVvbm4wDAQM', title: 'Unga Naamam Uyaranum (Alt)' },
     { id: 'C5RPPkk3-Ns', title: 'Maatrumae Ennai Maatrumae' }
   ]
+
+  const [casualCoversList, setCasualCoversList] = useState(defaultCasualCovers)
+
+  React.useEffect(() => {
+    const fetchCovers = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+        const res = await fetch(`${apiUrl}/content/casual_covers`)
+        if (res.ok) {
+          const data = await res.json()
+          if (data && Array.isArray(data)) {
+            setCasualCoversList(data)
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load dynamic casual covers:', err)
+      }
+    }
+    fetchCovers()
+  }, [])
 
   const getYoutubeThumb = (id) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`
 
@@ -248,7 +268,7 @@ export default function Sermons() {
                 <p>Listen to acoustic recordings, praise covers, and fellowship jam sessions.</p>
               </div>
               <div className="row g-4">
-                {casualCovers.map((cover, idx) => (
+                {casualCoversList.map((cover, idx) => (
                   <div className="col-lg-3 col-md-6" key={idx}>
                     <motion.div 
                       className="video-box"

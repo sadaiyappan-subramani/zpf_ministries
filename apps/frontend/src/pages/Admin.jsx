@@ -673,6 +673,7 @@ export default function Admin() {
                         onChange={(e) => setSelectedContentKey(e.target.value)}
                       >
                         <option value="zion_songs">Zion Original Songs (Sermons Tab)</option>
+                        <option value="casual_covers">Casual Worship Covers (Sermons Tab)</option>
                         <option value="service_hours">Weekly Service Timings (Meetings Page)</option>
                       </select>
                     </div>
@@ -720,7 +721,7 @@ export default function Admin() {
                             Add New Item
                           </h3>
 
-                          {selectedContentKey === 'zion_songs' ? (
+                          {selectedContentKey === 'zion_songs' || selectedContentKey === 'casual_covers' ? (
                             <form onSubmit={handleAddSong}>
                               <div className="form-group mb-3">
                                 <label className="form-label">YouTube Video ID</label>
@@ -898,7 +899,7 @@ export default function Admin() {
                               <i className="bi bi-folder-x" style={{ fontSize: '2.5rem', color: 'rgba(255,255,255,0.2)' }}></i>
                               <p className="text-cosmic mt-3">No items in this list. Use the form to add some.</p>
                             </div>
-                          ) : selectedContentKey === 'zion_songs' ? (
+                          ) : (selectedContentKey === 'zion_songs' || selectedContentKey === 'casual_covers') ? (
                             <div className="table-responsive">
                               <table className="admin-table">
                                 <thead>
