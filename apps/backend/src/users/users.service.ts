@@ -17,16 +17,16 @@ export class UsersService {
     });
   }
 
-  async create(dob: string, passcode: string) {
+  async create(dob: string, passcode: string, name: string) {
     return this.prisma.sanctuaryUser.create({
-      data: { dob, passcode },
+      data: { dob, passcode, name },
     });
   }
 
-  async update(id: number, dob?: string, passcode?: string) {
+  async update(id: number, dob?: string, passcode?: string, name?: string) {
     return this.prisma.sanctuaryUser.update({
       where: { id },
-      data: { dob, passcode },
+      data: { dob, passcode, name },
     });
   }
 

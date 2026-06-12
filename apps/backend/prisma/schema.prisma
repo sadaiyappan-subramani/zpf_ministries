@@ -8,6 +8,7 @@ generator client {
 
 model SanctuaryUser {
   id        Int      @id @default(autoincrement())
+  name      String
   dob       String
   passcode  String
   createdAt DateTime @default(now())

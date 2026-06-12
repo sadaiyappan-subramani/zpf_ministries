@@ -10,7 +10,7 @@ export class AppController {
     private readonly appService: AppService,
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
-  ) {}
+  ) { }
 
   @Get()
   getHello(): string {
@@ -38,7 +38,7 @@ export class AppController {
     const admin = await this.prisma.admin.findUnique({
       where: { email: body.email },
     });
-console.log(admin);
+    console.log(admin);
     if (!admin) {
       throw new UnauthorizedException('Access Denied. Check credentials.');
     }
@@ -66,7 +66,7 @@ console.log(admin);
     }
 
     const users = await this.prisma.sanctuaryUser.findMany({
-      orderBy: { createdAt: 'desc' },
+      orderBy: { createdAt: 'asc' },
     });
 
     return users;

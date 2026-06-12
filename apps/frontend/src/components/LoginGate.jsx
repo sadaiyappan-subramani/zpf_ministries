@@ -30,12 +30,12 @@ export default function LoginGate({ children }) {
     
     setDobInput(formatted)
     
-    // Update dob in YYYY-MM-DD format for matching the credentials
+    // Update dob in DD-MM-YYYY format for matching the credentials
     if (value.length === 8) {
       const d = value.slice(0, 2)
       const m = value.slice(2, 4)
       const y = value.slice(4, 8)
-      setDob(`${y}-${m}-${d}`)
+      setDob(`${d}-${m}-${y}`)
     } else {
       setDob('')
     }

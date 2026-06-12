@@ -36,21 +36,21 @@ export class UsersController {
 
   @Post()
   async create(
-    @Body() body: { dob: string; passcode: string },
+    @Body() body: { dob: string; passcode: string; name: string },
     @Headers('authorization') authHeader: string,
   ) {
     this.validateToken(authHeader);
-    return this.usersService.create(body.dob, body.passcode);
+    return this.usersService.create(body.dob, body.passcode, body.name);
   }
 
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() body: { dob?: string; passcode?: string },
+    @Body() body: { dob?: string; passcode?: string; name?: string },
     @Headers('authorization') authHeader: string,
   ) {
     this.validateToken(authHeader);
-    return this.usersService.update(+id, body.dob, body.passcode);
+    return this.usersService.update(+id, body.dob, body.passcode, body.name);
   }
 
   @Delete(':id')
