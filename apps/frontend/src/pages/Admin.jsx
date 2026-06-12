@@ -1167,7 +1167,7 @@ export default function Admin() {
                                     <tr key={idx}>
                                       <td style={{ width: '120px' }}>
                                         <img
-                                          src={album.cover || '/assets/img/all_ministries.png'}
+                                          src={album.cover || (album.id ? `https://img.youtube.com/vi/${album.id}/hqdefault.jpg` : '/assets/img/all_ministries.png')}
                                           alt={album.title}
                                           style={{ width: '100px', height: 'auto', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.1)' }}
                                         />
@@ -1184,11 +1184,11 @@ export default function Admin() {
                                             textTransform: 'uppercase'
                                           }}
                                         >
-                                          {album.category}
+                                          {album.category || 'worship'}
                                         </span>
                                       </td>
                                       <td>
-                                        <p style={{ margin: 0, fontSize: '0.85rem', color: '#ccc' }}>{album.desc}</p>
+                                        <p style={{ margin: 0, fontSize: '0.85rem', color: '#ccc' }}>{album.desc || 'YouTube Video Highlight'}</p>
                                         {album.details && (
                                           <div style={{ fontSize: '0.75rem', color: '#e67e22', marginTop: '4px' }}>
                                             Highlights: {album.details.join(', ')}
@@ -1197,6 +1197,11 @@ export default function Admin() {
                                         {album.videos && (
                                           <div style={{ fontSize: '0.75rem', color: '#3498db', marginTop: '4px' }}>
                                             Videos: {album.videos.map(v => v.title).join(', ')}
+                                          </div>
+                                        )}
+                                        {!album.videos && album.id && (
+                                          <div style={{ fontSize: '0.75rem', color: '#3498db', marginTop: '4px' }}>
+                                            YouTube ID: <code>{album.id}</code>
                                           </div>
                                         )}
                                       </td>

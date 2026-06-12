@@ -224,70 +224,111 @@ export default function Gallery() {
                   style={{ height: '100%' }}
                 >
                   <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <div className="feature-card-img" style={{ backgroundImage: `url(${album.cover})` }}></div>
-                    <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                      <div style={{ marginBottom: '10px' }}>
-                        <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
-                          {album.category}
-                        </span>
-                      </div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
-                        {album.title}
-                      </h3>
-                      <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
-                        {album.desc}
-                      </p>
+                    {(() => {
+                      const coverImg = album.cover || (album.id ? `https://img.youtube.com/vi/${album.id}/hqdefault.jpg` : '/assets/img/all_ministries.png');
+                      const categoryLabel = album.category || 'worship';
+                      const descText = album.desc || 'Watch the gospel video highlight and worship song.';
+                      
+                      return (
+                        <>
+                          <div className="feature-card-img" style={{ backgroundImage: `url(${coverImg})` }}></div>
+                          <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ marginBottom: '10px' }}>
+                              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
+                                {categoryLabel}
+                              </span>
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                              {album.title}
+                            </h3>
+                            <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                              {descText}
+                            </p>
 
-                      {/* Render details if present */}
-                      {album.details && (
-                        <div style={{ marginBottom: '20px', background: '#f8f9fa', padding: '12px 15px', borderRadius: '8px' }}>
-                          <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: '#444', marginBottom: '8px', textTransform: 'uppercase' }}>
-                            Sub-Items / Highlights:
-                          </h4>
-                          <ul style={{ listStyleType: 'disc', paddingLeft: '18px', margin: 0, fontSize: '0.8rem', color: '#555' }}>
-                            {album.details.map((detail, i) => (
-                              <li key={i}>{detail}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                            {/* Render details if present */}
+                            {album.details && (
+                              <div style={{ marginBottom: '20px', background: '#f8f9fa', padding: '12px 15px', borderRadius: '8px' }}>
+                                <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: '#444', marginBottom: '8px', textTransform: 'uppercase' }}>
+                                  Sub-Items / Highlights:
+                                </h4>
+                                <ul style={{ listStyleType: 'disc', paddingLeft: '18px', margin: 0, fontSize: '0.8rem', color: '#555' }}>
+                                  {album.details.map((detail, i) => (
+                                    <li key={i}>{detail}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
 
-                      {/* Render videos if present */}
-                      {album.videos && (
-                        <div style={{ marginTop: 'auto' }}>
-                          <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: '#444', marginBottom: '10px', textTransform: 'uppercase' }}>
-                            Video Highlights:
-                          </h4>
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {album.videos.map((vid, i) => (
-                              <button
-                                key={i}
-                                onClick={() => setSelectedVideo(vid.id)}
-                                style={{
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  gap: '10px',
-                                  background: '#f1f5f9',
-                                  border: 'none',
-                                  padding: '8px 12px',
-                                  borderRadius: '6px',
-                                  width: '100%',
-                                  textAlign: 'left',
-                                  cursor: 'pointer',
-                                  fontSize: '0.8rem',
-                                  fontWeight: 600,
-                                  color: '#2563eb'
-                                }}
-                              >
-                                <i className="bi bi-play-circle-fill" style={{ fontSize: '1rem', color: '#ef4444' }}></i>
-                                <span>{vid.title}</span>
-                              </button>
-                            ))}
+                            {/* Render videos list if present */}
+                            {album.videos && (
+                              <div style={{ marginTop: 'auto' }}>
+                                <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: '#444', marginBottom: '10px', textTransform: 'uppercase' }}>
+                                  Video Highlights:
+                                </h4>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                  {album.videos.map((vid, i) => (
+                                    <button
+                                      key={i}
+                                      onClick={() => setSelectedVideo(vid.id)}
+                                      style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '10px',
+                                        background: '#f1f5f9',
+                                        border: 'none',
+                                        padding: '8px 12px',
+                                        borderRadius: '6px',
+                                        width: '100%',
+                                        textAlign: 'left',
+                                        cursor: 'pointer',
+                                        fontSize: '0.8rem',
+                                        fontWeight: 600,
+                                        color: '#2563eb'
+                                      }}
+                                    >
+                                      <i className="bi bi-play-circle-fill" style={{ fontSize: '1rem', color: '#ef4444' }}></i>
+                                      <span>{vid.title}</span>
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Render play button if it's a single video item */}
+                            {!album.videos && album.id && (
+                              <div style={{ marginTop: 'auto' }}>
+                                <button
+                                  onClick={() => setSelectedVideo(album.id)}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '10px',
+                                    background: '#2563eb',
+                                    border: 'none',
+                                    padding: '12px 20px',
+                                    borderRadius: '30px',
+                                    width: '100%',
+                                    cursor: 'pointer',
+                                    fontSize: '0.9rem',
+                                    fontWeight: 700,
+                                    color: '#fff',
+                                    boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)',
+                                    transition: 'all 0.2s ease'
+                                  }}
+                                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
+                                  onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
+                                >
+                                  <i className="bi bi-play-fill" style={{ fontSize: '1.2rem' }}></i>
+                                  <span>Watch Video</span>
+                                </button>
+                              </div>
+                            )}
+
                           </div>
-                        </div>
-                      )}
-
-                    </div>
+                        </>
+                      );
+                    })()}
                   </SpotlightCard>
                 </motion.div>
               </div>
