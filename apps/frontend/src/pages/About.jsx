@@ -537,67 +537,254 @@ export default function About() {
           <div className="row g-4" style={{ marginBottom: '60px' }}>
             {/* Deborah Fellowship */}
             <div className="col-md-6" id="deborah-fellowship">
-              <div className="campus-card" style={{ padding: '35px' }}>
-                <i className="bi bi-gender-female" style={{ fontSize: '2.5rem', color: '#a855f7', marginBottom: '15px' }}></i>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '10px' }}>Deborah Fellowship</h3>
-                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: '1.6', margin: 0 }}>
-                  A monthly gathering for women focusing on intercessory prayers for families, missions, and spiritual mentorship. Every First Wednesday from 8:00 PM – 9:30 PM.
+              <div className="campus-card" style={{ padding: '35px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                  <i className="bi bi-gender-female" style={{ fontSize: '2.5rem', color: '#a855f7', margin: 0 }}></i>
+                  <span style={{ fontSize: '0.8rem', background: '#fae8ff', color: '#86198f', padding: '4px 12px', borderRadius: '20px', fontWeight: 700 }}>
+                    Monthly Meet
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>Deborah Fellowship</h3>
+                
+                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: '1.6', marginBottom: '15px' }}>
+                  A monthly gathering for women focusing on intercessory prayers for families, missions, and spiritual mentorship.
                 </p>
+
+                <div style={{ background: '#fcfcfc', border: '1px solid #eaeaea', borderRadius: '8px', padding: '15px', marginBottom: '20px' }}>
+                  <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#222', marginBottom: '10px' }}>
+                    <i className="bi bi-clock-fill" style={{ color: '#a855f7', marginRight: '6px' }}></i> Schedule & Timings
+                  </h4>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.85rem', color: '#555', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <li>
+                      <strong>Timing:</strong> 8:00 PM – 9:30 PM
+                    </li>
+                    <li>
+                      <strong>Frequency:</strong> Every First Wednesday of the Month
+                    </li>
+                    <li style={{ borderTop: '1px dashed #eee', paddingTop: '8px', marginTop: '4px' }}>
+                      <strong>Participation:</strong> Open to all women, wives, and mothers in the fellowship
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={{ marginBottom: '25px' }}>
+                  <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#222', marginBottom: '10px' }}>
+                    <i className="bi bi-heart-fill" style={{ color: '#a855f7', marginRight: '6px' }}></i> Focus Areas & Activities
+                  </h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px', fontSize: '0.85rem', color: '#555' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#a855f7', fontSize: '0.8rem' }}></i>
+                      <span>Intercessory Prayer</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#a855f7', fontSize: '0.8rem' }}></i>
+                      <span>Family Blessings</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#a855f7', fontSize: '0.8rem' }}></i>
+                      <span>Missionary Support</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#a855f7', fontSize: '0.8rem' }}></i>
+                      <span>Spiritual Mentorship</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#a855f7', fontSize: '0.8rem' }}></i>
+                      <span>Sisterhood Fellowship</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#a855f7', fontSize: '0.8rem' }}></i>
+                      <span>Testimony Sharing</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                  <Link to="/events" className="btn-secondary" style={{ flex: 1, textAlign: 'center', fontSize: '0.8rem', padding: '10px 0', border: '1px solid #bf953f', borderRadius: '30px', textDecoration: 'none' }}>
+                    Meetings Page
+                  </Link>
+                  <Link to="/contact" className="btn-primary" style={{ flex: 1, textAlign: 'center', fontSize: '0.8rem', padding: '10px 0', background: 'linear-gradient(135deg, #bf953f 0%, #b38728 100%)', color: '#050609', border: 'none', borderRadius: '30px', fontWeight: 700, textDecoration: 'none' }}>
+                    Join / Contact
+                  </Link>
+                </div>
               </div>
             </div>
 
             {/* Kids Bible School */}
             <div className="col-md-6" id="kids-bible-school">
-              <div className="campus-card" style={{ padding: '35px' }}>
-                <i className="bi bi-book-half" style={{ fontSize: '2.5rem', color: '#eab308', marginBottom: '15px' }}></i>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '10px' }}>Kids Bible School</h3>
-                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: '1.6', margin: 0 }}>
+              <div className="campus-card" style={{ padding: '35px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                  <i className="bi bi-book-half" style={{ fontSize: '2.5rem', color: '#eab308', margin: 0 }}></i>
+                  <span style={{ fontSize: '0.8rem', background: '#fef3c7', color: '#b45309', padding: '4px 12px', borderRadius: '20px', fontWeight: 700 }}>
+                    Every Sunday
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>Kids Bible School</h3>
+                
+                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: '1.6', marginBottom: '15px' }}>
                   Providing sound biblical education, memorization, and activities to anchor children's faith early. Led by our dedicated teaching staff.
                 </p>
+
+                <div style={{ background: '#fcfcfc', border: '1px solid #eaeaea', borderRadius: '8px', padding: '15px', marginBottom: '20px' }}>
+                  <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#222', marginBottom: '10px' }}>
+                    <i className="bi bi-clock-fill" style={{ color: '#eab308', marginRight: '6px' }}></i> Timings & Classes
+                  </h4>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.85rem', color: '#555', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <li>
+                      <strong>Morning Session:</strong> 9:30 AM – 10:30 AM (During HBR/Kothanur Service)
+                    </li>
+                    <li>
+                      <strong>Evening Session:</strong> 5:00 PM – 6:00 PM (During Kothanur Service)
+                    </li>
+                    <li style={{ borderTop: '1px dashed #eee', paddingTop: '8px', marginTop: '4px' }}>
+                      <strong>Age Groups:</strong> Beginners (3-5), Primary (6-8), Juniors (9-12), Teens (13+)
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={{ marginBottom: '25px' }}>
+                  <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#222', marginBottom: '10px' }}>
+                    <i className="bi bi-star-fill" style={{ color: '#eab308', marginRight: '6px' }}></i> Core Activities & Focus
+                  </h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px', fontSize: '0.85rem', color: '#555' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#eab308', fontSize: '0.8rem' }}></i>
+                      <span>Bible Storytelling</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#eab308', fontSize: '0.8rem' }}></i>
+                      <span>Scripture Memory</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#eab308', fontSize: '0.8rem' }}></i>
+                      <span>Choir & Singing</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#eab308', fontSize: '0.8rem' }}></i>
+                      <span>Instrument Lessons</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#eab308', fontSize: '0.8rem' }}></i>
+                      <span>Annual Bible Exams</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <i className="bi bi-check-circle-fill" style={{ color: '#eab308', fontSize: '0.8rem' }}></i>
+                      <span>Summer VBS Camps</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                  <a href="#servants" className="btn-secondary" style={{ flex: 1, textAlign: 'center', fontSize: '0.8rem', padding: '10px 0', border: '2px solid #bf953f', borderRadius: '30px', textDecoration: 'none' }}>
+                    Meet Teachers
+                  </a>
+                  <Link to="/gallery" className="btn-primary" style={{ flex: 1, textAlign: 'center', fontSize: '0.8rem', padding: '10px 0', background: 'linear-gradient(135deg, #bf953f 0%, #b38728 100%)', color: '#050609', border: 'none', borderRadius: '30px', fontWeight: 700, textDecoration: 'none' }}>
+                    View Gallery
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Equipping & Edifying */}
           <div style={{ marginBottom: '60px' }} id="edifying-one-another">
-            <h3 className="servants-subheading" style={{ borderBottomColor: '#2563eb' }}>Equipping & Edifying</h3>
-            <div className="row gy-4">
-              <div className="col-lg-6">
-                <p style={{ color: '#555', lineHeight: '1.7', fontSize: '1rem', marginBottom: '20px' }}>
-                  We are committed to training, raising, and releasing believers to fulfill their spiritual callings in the church and outreach fields. Our edification path includes:
-                </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
-                  {[
-                    'Partaking in All Fellowships',
-                    'Engaging in Support Ministries',
-                    'Preaching & Serving',
-                    'Accredited Theological Studies (M.Div)',
-                    'Bible Knowledge Tests',
-                    'Visiting Active Mission Fields',
-                    'Outreach Ministry & Industrial Visits',
-                    'Christian Leadership Training (Haggai)',
-                    'Short-term Missionary Training (GVS)',
-                    'Spiritual Mentorship Training'
-                  ].map((item, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: '#444' }}>
-                      <i className="bi bi-check-circle-fill" style={{ color: '#2563eb' }}></i>
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
+            <h3 className="servants-subheading" style={{ borderBottomColor: '#2563eb', fontSize: '1.6rem', fontWeight: 800, paddingBottom: '10px', marginBottom: '25px' }}>
+              Equipping & Edifying
+            </h3>
+            
+            <p style={{ color: '#555', lineHeight: '1.7', fontSize: '1.05rem', marginBottom: '30px', maxWidth: '800px' }}>
+              We are committed to training, raising, and releasing believers to fulfill their spiritual callings in the church and outreach fields. Our structured edification path empowers every member to grow and serve.
+            </p>
+
+            <div className="row g-4" style={{ marginBottom: '40px' }}>
+              {/* Category 1: Spiritual Growth */}
+              <div className="col-lg-4 col-md-6">
+                <SpotlightCard className="campus-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <i className="bi bi-book-half" style={{ fontSize: '2rem', color: '#2563eb', marginBottom: '15px', display: 'block' }}></i>
+                  <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: '#1a1a1a' }}>Spiritual Growth</h4>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#555' }}>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Partaking in all Fellowships
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Bible Knowledge & Tests
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Spiritual Mentorship Training
+                    </li>
+                  </ul>
+                </SpotlightCard>
               </div>
 
-              {/* Photo placeholder or prayer drive display */}
-              <div className="col-lg-6">
-                <div className="all-ministries-card" style={{ backgroundImage: `url('/assets/img/bible_club_banner.png')`, height: '100%', minHeight: '260px' }}>
-                  <div className="all-ministries-overlay" style={{ background: 'rgba(37, 99, 235, 0.75)' }}></div>
-                  <div className="all-ministries-content" style={{ padding: '30px' }}>
-                    <h4 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginBottom: '10px' }}>Jericho Prayer Drives</h4>
-                    <p style={{ fontSize: '0.9rem', color: '#fff', opacity: 0.9 }}>
-                      Driving prayers through cities, invoking blessings, and praising God in industrial areas and outreach pathways.
-                    </p>
+              {/* Category 2: Leadership & Ministry */}
+              <div className="col-lg-4 col-md-6">
+                <SpotlightCard className="campus-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <i className="bi bi-award-fill" style={{ fontSize: '2rem', color: '#2563eb', marginBottom: '15px', display: 'block' }}></i>
+                  <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: '#1a1a1a' }}>Leadership & Service</h4>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#555' }}>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Preaching & Serving
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Engaging in Support Ministries
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Haggai Leadership Training
+                    </li>
+                  </ul>
+                </SpotlightCard>
+              </div>
+
+              {/* Category 3: Outreach & Higher Studies */}
+              <div className="col-lg-4 col-md-6">
+                <SpotlightCard className="campus-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <i className="bi bi-globe-americas" style={{ fontSize: '2rem', color: '#2563eb', marginBottom: '15px', display: 'block' }}></i>
+                  <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: '#1a1a1a' }}>Missions & Studies</h4>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#555' }}>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Visiting Active Mission Fields
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Short-term Missionary Training
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                      Theological Studies (M.Div)
+                    </li>
+                  </ul>
+                </SpotlightCard>
+              </div>
+            </div>
+
+            {/* Jericho Prayer Drives Highlight Banner */}
+            <div className="row">
+              <div className="col-12">
+                <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ border: '1px solid #eaeaea', borderRadius: '16px', overflow: 'hidden' }}>
+                  <div className="row g-0 align-items-center">
+                    <div className="col-lg-6">
+                      <div style={{ padding: '40px' }}>
+                        <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase', display: 'inline-block', marginBottom: '15px' }}>
+                          Outreach Ministry
+                        </span>
+                        <h4 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '15px' }}>Jericho Prayer Drives</h4>
+                        <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
+                          We drive prayers actively through cities, invoking blessings, and praising God in industrial areas, neighborhoods, and outreach pathways to proclaim His glory and cover the land in prayer.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="col-lg-6">
+                      <div style={{ backgroundImage: `url('/assets/img/bible_club_banner.png')`, backgroundSize: 'cover', backgroundPosition: 'center', height: '300px', width: '100%' }}></div>
+                    </div>
                   </div>
-                </div>
+                </SpotlightCard>
               </div>
             </div>
           </div>

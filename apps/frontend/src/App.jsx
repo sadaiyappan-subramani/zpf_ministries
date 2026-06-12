@@ -19,14 +19,15 @@ function ScrollToTop() {
   
   useEffect(() => {
     if (hash) {
-      // Allow component render/mounting to finish
-      setTimeout(() => {
+      // Allow component render/mounting and transition animations to finish
+      const timer = setTimeout(() => {
         const id = hash.replace('#', '')
         const element = document.getElementById(id)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
-      }, 100)
+      }, 500)
+      return () => clearTimeout(timer)
     } else {
       window.scrollTo(0, 0)
     }
