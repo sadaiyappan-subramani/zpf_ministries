@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import SpotlightCard from '../components/bits/SpotlightCard'
 
 export default function Sermons() {
   const [activeSection, setActiveSection] = useState('sermons')
@@ -223,38 +224,67 @@ export default function Sermons() {
                 <p>Enjoy gospel tracks, language translations, and spiritual worship songs recorded by our teams.</p>
               </div>
               <div className="row g-4">
-                {zionSongsList.map((song, idx) => (
-                  <div className="col-lg-4 col-md-6" key={idx}>
-                    <motion.div
-                      className="video-box"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={fadeInUp}
-                      style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', height: '100%' }}
-                      onClick={() => setSelectedVideo(song.id)}
-                    >
-                      <div className="ratio ratio-16x9 mb-3">
-                        <img
-                          src={getYoutubeThumb(song.id)}
-                          alt={song.title}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                        <div style={{
-                          position: 'absolute',
-                          inset: 0,
-                          background: 'rgba(0,0,0,0.3)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}>
-                          <i className="bi bi-play-circle-fill text-white" style={{ fontSize: '3rem' }}></i>
-                        </div>
-                      </div>
-                      <h4 className="video-title" style={{ fontSize: '1.05rem', fontWeight: 700 }}>{song.title}</h4>
-                    </motion.div>
-                  </div>
-                ))}
+                {zionSongsList.map((song, idx) => {
+                  const coverImg = song.cover || (song.id ? `https://img.youtube.com/vi/${song.id}/hqdefault.jpg` : '/assets/img/all_ministries.png');
+                  const categoryLabel = song.category || 'worship';
+                  const descText = song.desc || 'Watch the gospel video highlight and worship song.';
+                  
+                  return (
+                    <div className="col-lg-4 col-md-6" key={idx}>
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        style={{ height: '100%' }}
+                      >
+                        <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                          <div className="feature-card-img" style={{ backgroundImage: `url(${coverImg})` }}></div>
+                          <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ marginBottom: '10px' }}>
+                              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
+                                {categoryLabel}
+                              </span>
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                              {song.title}
+                            </h3>
+                            <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                              {descText}
+                            </p>
+                            <div style={{ marginTop: 'auto' }}>
+                              <button
+                                onClick={() => setSelectedVideo(song.id)}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  gap: '10px',
+                                  background: '#2563eb',
+                                  border: 'none',
+                                  padding: '12px 20px',
+                                  borderRadius: '30px',
+                                  width: '100%',
+                                  cursor: 'pointer',
+                                  fontSize: '0.9rem',
+                                  fontWeight: 700,
+                                  color: '#fff',
+                                  boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)',
+                                  transition: 'all 0.2s ease'
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
+                                onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
+                              >
+                                <i className="bi bi-play-fill" style={{ fontSize: '1.2rem' }}></i>
+                                <span>Watch Video</span>
+                              </button>
+                            </div>
+                          </div>
+                        </SpotlightCard>
+                      </motion.div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -267,38 +297,67 @@ export default function Sermons() {
                 <p>Listen to acoustic recordings, praise covers, and fellowship jam sessions.</p>
               </div>
               <div className="row g-4">
-                {casualCoversList.map((cover, idx) => (
-                  <div className="col-lg-4 col-md-6" key={idx}>
-                    <motion.div
-                      className="video-box"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={fadeInUp}
-                      style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', height: '100%' }}
-                      onClick={() => setSelectedVideo(cover.id)}
-                    >
-                      <div className="ratio ratio-16x9 mb-2">
-                        <img
-                          src={getYoutubeThumb(cover.id)}
-                          alt={cover.title}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                        <div style={{
-                          position: 'absolute',
-                          inset: 0,
-                          background: 'rgba(0,0,0,0.35)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}>
-                          <i className="bi bi-play-fill text-white" style={{ fontSize: '2.2rem' }}></i>
-                        </div>
-                      </div>
-                      <h4 className="video-title" style={{ fontSize: '0.9rem', fontWeight: 600, margin: 0 }}>{cover.title}</h4>
-                    </motion.div>
-                  </div>
-                ))}
+                {casualCoversList.map((cover, idx) => {
+                  const coverImg = cover.cover || (cover.id ? `https://img.youtube.com/vi/${cover.id}/hqdefault.jpg` : '/assets/img/all_ministries.png');
+                  const categoryLabel = cover.category || 'worship';
+                  const descText = cover.desc || 'Watch the gospel video highlight and worship song.';
+                  
+                  return (
+                    <div className="col-lg-4 col-md-6" key={idx}>
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        style={{ height: '100%' }}
+                      >
+                        <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                          <div className="feature-card-img" style={{ backgroundImage: `url(${coverImg})` }}></div>
+                          <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ marginBottom: '10px' }}>
+                              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
+                                {categoryLabel}
+                              </span>
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                              {cover.title}
+                            </h3>
+                            <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                              {descText}
+                            </p>
+                            <div style={{ marginTop: 'auto' }}>
+                              <button
+                                onClick={() => setSelectedVideo(cover.id)}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  gap: '10px',
+                                  background: '#2563eb',
+                                  border: 'none',
+                                  padding: '12px 20px',
+                                  borderRadius: '30px',
+                                  width: '100%',
+                                  cursor: 'pointer',
+                                  fontSize: '0.9rem',
+                                  fontWeight: 700,
+                                  color: '#fff',
+                                  boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)',
+                                  transition: 'all 0.2s ease'
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
+                                onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
+                              >
+                                <i className="bi bi-play-fill" style={{ fontSize: '1.2rem' }}></i>
+                                <span>Watch Video</span>
+                              </button>
+                            </div>
+                          </div>
+                        </SpotlightCard>
+                      </motion.div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
