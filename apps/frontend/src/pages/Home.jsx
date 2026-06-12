@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import ShinyText from '../components/bits/ShinyText'
+import SpotlightCard from '../components/bits/SpotlightCard'
 
 export default function Home() {
   // Hero Carousel State
@@ -187,7 +189,7 @@ export default function Home() {
 
           <div className="campus-grid">
             {/* Card 1 */}
-            <div className="campus-card">
+            <SpotlightCard className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)">
               <i className="bi bi-geo-alt-fill campus-card-icon text-center"></i>
               <h3 className="campus-card-title text-center">Kothanur Campus</h3>
               <p className="campus-card-desc text-center">
@@ -201,10 +203,10 @@ export default function Home() {
               <Link to="/contact" className="campus-card-btn">
                 Get our location <i className="bi bi-arrow-right"></i>
               </Link>
-            </div>
+            </SpotlightCard>
 
             {/* Card 2 */}
-            <div className="campus-card">
+            <SpotlightCard className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)">
               <i className="bi bi-geo-alt-fill campus-card-icon text-center"></i>
               <h3 className="campus-card-title text-center">HBR Campus</h3>
               <p className="campus-card-desc text-center">
@@ -218,10 +220,10 @@ export default function Home() {
               <Link to="/contact" className="campus-card-btn">
                 HBR Location <i className="bi bi-arrow-right"></i>
               </Link>
-            </div>
+            </SpotlightCard>
 
             {/* Card 3 */}
-            <div className="campus-card">
+            <SpotlightCard className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)">
               <i className="bi bi-geo-alt-fill campus-card-icon text-center"></i>
               <h3 className="campus-card-title text-center">Cornerstone Campus</h3>
               <p className="campus-card-desc text-center">
@@ -235,10 +237,10 @@ export default function Home() {
               <Link to="/contact" className="campus-card-btn">
                 Cornerstone Location <i className="bi bi-arrow-right"></i>
               </Link>
-            </div>
+            </SpotlightCard>
 
             {/* Card 4 */}
-            <div id="live-stream" className="campus-card">
+            <SpotlightCard id="live-stream" className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)">
               <i className="bi bi-broadcast campus-card-icon text-center"></i>
               <h3 className="campus-card-title text-center">Live Stream</h3>
               <p className="campus-card-desc text-center">
@@ -252,7 +254,7 @@ export default function Home() {
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="campus-card-btn">
                 Latest live stream <i className="bi bi-arrow-right"></i>
               </a>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
       </section>
@@ -307,7 +309,7 @@ export default function Home() {
         <div className="container">
           <div className="feature-row">
             {/* Sermons Card */}
-            <div className="feature-card">
+            <SpotlightCard className="feature-card" spotlightColor="rgba(255, 255, 255, 0.15)">
               <div className="feature-card-img" style={{ backgroundImage: `url('/assets/img/sermons_card.png')` }}></div>
               <div className="feature-card-body blue-bg">
                 <div className="feature-card-header">
@@ -321,10 +323,10 @@ export default function Home() {
                   Read more
                 </Link>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Care Cells Card */}
-            <div id="care" className="feature-card">
+            <SpotlightCard id="care" className="feature-card" spotlightColor="rgba(255, 255, 255, 0.15)">
               <div className="feature-card-img" style={{ backgroundImage: `url('/assets/img/care_cells_card.png')` }}></div>
               <div className="feature-card-body orange-bg">
                 <div className="feature-card-header">
@@ -338,7 +340,7 @@ export default function Home() {
                   Learn more
                 </Link>
               </div>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
       </section>
@@ -370,7 +372,7 @@ export default function Home() {
           <div className="ministry-row">
 
             {/* Kids Card */}
-            <div className="ministry-panel">
+            <SpotlightCard className="ministry-panel" spotlightColor="rgba(255, 255, 255, 0.15)">
               <div className="ministry-panel-img" style={{ backgroundImage: `url('/assets/img/kids_ministry.png')` }}></div>
               <div className="ministry-panel-body yellow-bg">
                 <div className="ministry-panel-header">
@@ -384,10 +386,10 @@ export default function Home() {
                   Learn more <i className="bi bi-arrow-right"></i>
                 </Link>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Teens Card */}
-            <div className="ministry-panel">
+            <SpotlightCard className="ministry-panel" spotlightColor="rgba(255, 255, 255, 0.15)">
               <div className="ministry-panel-img" style={{ backgroundImage: `url('/assets/img/teens_ministry.png')` }}></div>
               <div className="ministry-panel-body purple-bg">
                 <div className="ministry-panel-header">
@@ -401,10 +403,10 @@ export default function Home() {
                   Learn more <i className="bi bi-arrow-right"></i>
                 </Link>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Young Adults Card */}
-            <div className="ministry-panel">
+            <SpotlightCard className="ministry-panel" spotlightColor="rgba(255, 255, 255, 0.15)">
               <div className="ministry-panel-img" style={{ backgroundImage: `url('/assets/img/young_adults_ministry.png')` }}></div>
               <div className="ministry-panel-body lime-bg">
                 <div className="ministry-panel-header">
@@ -418,7 +420,7 @@ export default function Home() {
                   Learn more <i className="bi bi-arrow-right"></i>
                 </Link>
               </div>
-            </div>
+            </SpotlightCard>
 
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ShinyText from '../components/bits/ShinyText'
+import SpotlightCard from '../components/bits/SpotlightCard'
 
 export default function Admin() {
   const [email, setEmail] = useState('')
@@ -428,10 +430,12 @@ export default function Admin() {
             >
               <div className="login-card-container">
                 <div className="login-card-glow"></div>
-                <div className="login-card">
+                <SpotlightCard className="login-card" spotlightColor="rgba(191, 149, 63, 0.16)">
                   <div className="login-header text-center mb-3">
                     <i className="bi bi-shield-lock lock-icon"></i>
-                    <h2 className="login-title">Admin Access Portal</h2>
+                    <h2 className="login-title">
+                      <ShinyText text="Admin Access Portal" speed={6} />
+                    </h2>
                   </div>
 
                   {/* Tamil Bible Verse */}
@@ -487,7 +491,7 @@ export default function Admin() {
                       {loading ? 'AUTHENTICATING...' : 'ACCESS DASHBOARD'}
                     </button>
                   </form>
-                </div>
+                </SpotlightCard>
               </div>
             </motion.div>
           ) : (

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import SpotlightCard from '../components/bits/SpotlightCard'
 
 export default function About() {
   const [dhasPhotoIndex, setDhasPhotoIndex] = React.useState(0)
@@ -83,7 +84,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="pastor-family-card" style={{ position: 'relative' }}>
+                <SpotlightCard className="pastor-family-card" spotlightColor="rgba(229, 193, 88, 0.12)">
                   <img
                     src={dhasPhotos[dhasPhotoIndex]}
                     alt="Founder Bro. Perinba Dhas and Wife"
@@ -99,7 +100,7 @@ export default function About() {
                     <h3 className="pastor-family-card-title">Bro. Perinba Dhas</h3>
                     <p className="pastor-family-card-role">Our Founder & Senior Pastor</p>
                   </div>
-                </div>
+                </SpotlightCard>
               </motion.div>
             </div>
 
@@ -119,7 +120,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="pastor-family-card">
+                  <SpotlightCard className="pastor-family-card" spotlightColor="rgba(229, 193, 88, 0.12)">
                     <img
                       src="/assets/img/daughter_family_1.jpg"
                       alt="Bro. Muhil and Family (Daughter's Family)"
@@ -130,7 +131,7 @@ export default function About() {
                       <h3 className="pastor-family-card-title" style={{ fontSize: '1.15rem' }}>Family</h3>
                       <p className="pastor-family-card-role" style={{ fontSize: '0.8rem' }}>Daughter's Family</p>
                     </div>
-                  </div>
+                  </SpotlightCard>
                 </motion.div>
               </div>
               <div className="col-lg-6 col-md-6">
@@ -140,7 +141,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="pastor-family-card">
+                  <SpotlightCard className="pastor-family-card" spotlightColor="rgba(229, 193, 88, 0.12)">
                     <img
                       src="/assets/img/daughter_family_2.jpg"
                       alt="Founder's Daughter and Family"
@@ -151,7 +152,7 @@ export default function About() {
                       <h3 className="pastor-family-card-title" style={{ fontSize: '1.15rem' }}>Daughter's Family</h3>
                       <p className="pastor-family-card-role" style={{ fontSize: '0.8rem' }}>Founder's Family</p>
                     </div>
-                  </div>
+                  </SpotlightCard>
                 </motion.div>
               </div>
             </div>
@@ -243,7 +244,7 @@ export default function About() {
                 viewport={{ once: true }}
                 variants={fadeInUp}
               >
-                <div className="pastor-family-card">
+                <SpotlightCard className="pastor-family-card" spotlightColor="rgba(229, 193, 88, 0.12)">
                   <img
                     src="/assets/img/muhil_family.png"
                     alt="Pastor Bro. Muhil and Family"
@@ -254,7 +255,7 @@ export default function About() {
                     <h3 className="pastor-family-card-title">Bro. Muhil & Family</h3>
                     <p className="pastor-family-card-role">Our Pastor</p>
                   </div>
-                </div>
+                </SpotlightCard>
               </motion.div>
             </div>
 

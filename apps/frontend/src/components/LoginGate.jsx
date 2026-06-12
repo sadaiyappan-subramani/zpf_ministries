@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ShinyText from './bits/ShinyText'
+import SpotlightCard from './bits/SpotlightCard'
 
 export default function LoginGate({ children }) {
   const [dob, setDob] = useState('')
@@ -121,7 +123,7 @@ export default function LoginGate({ children }) {
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="login-card-glow"></div>
-        <div className="login-card">
+        <SpotlightCard className="login-card" spotlightColor="rgba(191, 149, 63, 0.16)">
           <div className="login-header text-center">
             <motion.div
               className="logo-icon-wrapper"
@@ -130,7 +132,9 @@ export default function LoginGate({ children }) {
             >
               <i className="bi bi-shield-lock lock-icon"></i>
             </motion.div>
-            <h2 className="login-title">ZPF Ministries</h2>
+            <h2 className="login-title">
+              <ShinyText text="ZPF Ministries" speed={6} />
+            </h2>
           </div>
 
           {/* Tamil Bible Verse */}
@@ -202,7 +206,7 @@ export default function LoginGate({ children }) {
               ENTER SANCTUARY
             </motion.button>
           </form>
-        </div>
+        </SpotlightCard>
       </motion.div>
     </div>
   )
