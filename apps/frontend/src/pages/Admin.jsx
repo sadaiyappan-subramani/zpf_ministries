@@ -20,8 +20,8 @@ export default function Admin() {
   const [showAddModal, setShowAddModal] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
   const [selectedUser, setSelectedUser] = useState(null)
-  const [newUser, setNewUser] = useState({ dob: '', passcode: '' })
-  const [editUser, setEditUser] = useState({ dob: '', passcode: '' })
+  const [newUser, setNewUser] = useState({ name: '', dob: '', passcode: '' })
+  const [editUser, setEditUser] = useState({ name: '', dob: '', passcode: '' })
 
   // Confirmation modal states
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
@@ -234,6 +234,7 @@ export default function Admin() {
   // Filter and sort users when data changes
   useEffect(() => {
     let filtered = users.filter(user =>
+      (user.name && user.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
       user.dob.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.passcode.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.id.toString().includes(searchTerm)
@@ -304,7 +305,7 @@ export default function Admin() {
       if (response.ok) {
         await fetchUsers()
         setShowAddModal(false)
-        setNewUser({ dob: '', passcode: '' })
+        setNewUser({ name: '', dob: '', passcode: '' })
       } else {
         const data = await response.json()
         setError(data.message || 'Failed to add user')
@@ -336,7 +337,7 @@ export default function Admin() {
         await fetchUsers()
         setShowEditModal(false)
         setSelectedUser(null)
-        setEditUser({ dob: '', passcode: '' })
+        setEditUser({ name: '', dob: '', passcode: '' })
       } else {
         const data = await response.json()
         setError(data.message || 'Failed to update user')
@@ -372,7 +373,7 @@ export default function Admin() {
 
   const handleDeleteUser = (userId) => {
     const user = users.find(u => u.id === userId)
-    requestDelete('user', userId, user ? `User with DOB ${user.dob}` : 'this user')
+    requestDelete('user', userId, user ? `${user.name} (DOB: ${user.dob})` : 'this user')
   }
 
   const handleDeleteUserReal = async (userId) => {
@@ -403,7 +404,7 @@ export default function Admin() {
 
   const openEditModal = (user) => {
     setSelectedUser(user)
-    setEditUser({ dob: user.dob, passcode: user.passcode })
+    setEditUser({ name: user.name || '', dob: user.dob, passcode: user.passcode })
     setShowEditModal(true)
   }
 
@@ -804,6 +805,9 @@ export default function Admin() {
                               <th onClick={() => handleSort('id')} style={{ cursor: 'pointer', userSelect: 'none' }}>
                                 ID {sortField === 'id' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
                               </th>
+                              <th onClick={() => handleSort('name')} style={{ cursor: 'pointer', userSelect: 'none' }}>
+                                Name {sortField === 'name' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
+                              </th>
                               <th onClick={() => handleSort('dob')} style={{ cursor: 'pointer', userSelect: 'none' }}>
                                 Date of Birth (DOB) {sortField === 'dob' && <i className={`bi bi-arrow-${sortOrder === 'asc' ? 'up' : 'down'} ms-1`}></i>}
                               </th>
@@ -820,6 +824,7 @@ export default function Admin() {
                             {paginatedUsers.map((user) => (
                               <tr key={user.id}>
                                 <td><code>#{user.id}</code></td>
+                                <td><span style={{ fontWeight: 600 }}>{user.name || 'N/A'}</span></td>
                                 <td>
                                   <span className="user-dob">
                                     <i className="bi bi-calendar3 me-2" style={{ color: 'var(--accent-gold)' }}></i>
@@ -1570,6 +1575,17 @@ export default function Admin() {
                     </div>
                     <form onSubmit={handleAddUser} className="modal-body">
                       <div className="form-group mb-3">
+                        <label className="form-label">Full Name</label>
+                        <input
+                          type="text"
+                          className="form-control-custom"
+                          placeholder="e.g. Alwyn"
+                          value={newUser.name}
+                          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+                          required
+                        />
+                      </div>
+                      <div className="form-group mb-3">
                         <label className="form-label">Date of Birth (DD-MM-YYYY)</label>
                         <input
                           type="text"
@@ -1630,6 +1646,17 @@ export default function Admin() {
                       </button>
                     </div>
                     <form onSubmit={handleEditUser} className="modal-body">
+                      <div className="form-group mb-3">
+                        <label className="form-label">Full Name</label>
+                        <input
+                          type="text"
+                          className="form-control-custom"
+                          placeholder="e.g. Alwyn"
+                          value={editUser.name}
+                          onChange={(e) => setEditUser({ ...editUser, name: e.target.value })}
+                          required
+                        />
+                      </div>
                       <div className="form-group mb-3">
                         <label className="form-label">Date of Birth (DD-MM-YYYY)</label>
                         <input
