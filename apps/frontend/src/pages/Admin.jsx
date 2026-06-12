@@ -717,23 +717,12 @@ export default function Admin() {
                 </Link>
               </li>
 
-              {/* About Dropdown */}
-              <li className="sidebar-dropdown">
-                <button
-                  onClick={() => toggleDropdown('about')}
-                  className={`sidebar-link sidebar-dropdown-trigger ${openDropdowns.about ? 'open' : ''}`}
-                >
+              {/* About Link */}
+              <li>
+                <Link to="/about" className="sidebar-link">
                   <i className="bi bi-info-circle-fill"></i>
-                  <span style={{ flex: 1 }}>About</span>
-                  <i className="bi bi-chevron-down dropdown-chevron"></i>
-                </button>
-                {openDropdowns.about && (
-                  <ul className="sidebar-submenu">
-                    <li><Link to="/about">About ZPF</Link></li>
-                    <li><Link to="/about#what-we-believe">What We Believe</Link></li>
-                    <li><Link to="/about#servants">Servants</Link></li>
-                  </ul>
-                )}
+                  <span>About</span>
+                </Link>
               </li>
 
               <li>

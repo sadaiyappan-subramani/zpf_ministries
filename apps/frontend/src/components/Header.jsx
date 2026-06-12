@@ -39,20 +39,15 @@ export default function Header() {
       </Link>
       <nav className="navmenu align-items-center">
         <ul>
-          {/* ABOUT DROPDOWN */}
-          <li className="dropdown">
-            <Link
+          {/* ABOUT LINK */}
+          <li>
+            <NavLink
               to="/about"
-              className={location.pathname === '/about' ? 'active' : ''}
+              className={({ isActive }) => isActive ? 'active' : ''}
               onClick={closeMobileNav}
             >
-              <span>About</span> <i className="bi bi-chevron-down toggle-dropdown"></i>
-            </Link>
-            <ul>
-              <li><Link to="/about" onClick={closeMobileNav}>About ZPF</Link></li>
-              <li><Link to="/about#what-we-believe" onClick={closeMobileNav}>What We Believe</Link></li>
-              <li><Link to="/about#servants" onClick={closeMobileNav}>Servants</Link></li>
-            </ul>
+              About
+            </NavLink>
           </li>
 
           {/* MEETINGS LINK */}
