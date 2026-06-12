@@ -16,7 +16,7 @@ async function main() {
   // 1. Seed Admin
   const adminEmail = 'admin@gmail.com';
   const adminPassword = 'Admin@123';
-  
+
   const existingAdmin = await prisma.admin.findUnique({
     where: { email: adminEmail },
   });
@@ -100,7 +100,7 @@ async function main() {
   // 3. Seed Website Content
   const defaultSongs = [
     { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16' },
-    { id: 'Oi7MXSJbhi4', title: 'HE is my everything (6 Languages)' },
+    { id: 'Oi7MXSJbhi4', title: 'HE is my everything ' },
     { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker' },
     { id: 'gjWVYjgsbvo', title: 'Siluvaiandai Vaa Maganae (Communion/Good Friday)' },
     { id: 'G8HSX2oNkOk', title: 'Gethsemanae Poongavinil (Good Friday)' },

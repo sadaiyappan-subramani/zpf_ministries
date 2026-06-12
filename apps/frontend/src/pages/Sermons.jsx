@@ -37,7 +37,7 @@ export default function Sermons() {
 
   const defaultZionSongs = [
     { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16' },
-    { id: 'Oi7MXSJbhi4', title: 'HE is my everything (6 Languages)' },
+    { id: 'Oi7MXSJbhi4', title: 'HE is my everything ' },
     { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker' },
     { id: 'gjWVYjgsbvo', title: 'Siluvaiandai Vaa Maganae (Communion/Good Friday)' },
     { id: 'G8HSX2oNkOk', title: 'Gethsemanae Poongavinil (Good Friday)' },
@@ -228,7 +228,7 @@ export default function Sermons() {
                   const coverImg = song.cover || (song.id ? `https://img.youtube.com/vi/${song.id}/hqdefault.jpg` : '/assets/img/all_ministries.png');
                   const categoryLabel = song.category || 'worship';
                   const descText = song.desc || 'Watch the gospel video highlight and worship song.';
-                  
+
                   return (
                     <div className="col-lg-4 col-md-6" key={idx}>
                       <motion.div
@@ -301,7 +301,7 @@ export default function Sermons() {
                   const coverImg = cover.cover || (cover.id ? `https://img.youtube.com/vi/${cover.id}/hqdefault.jpg` : '/assets/img/all_ministries.png');
                   const categoryLabel = cover.category || 'worship';
                   const descText = cover.desc || 'Watch the gospel video highlight and worship song.';
-                  
+
                   return (
                     <div className="col-lg-4 col-md-6" key={idx}>
                       <motion.div
