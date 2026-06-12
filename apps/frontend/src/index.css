@@ -329,14 +329,44 @@ body.scrolled .header {
   align-items: center;
 }
 
-@media (min-width: 993px) {
+@media (min-width: 1200px) {
+  .header {
+    padding: 0 20px;
+  }
+
   .header.redesign-header .navmenu {
-    margin-left: 50px;
+    margin-left: 15px;
     margin-right: auto;
   }
 
   .header.redesign-header .navmenu ul {
-    gap: 35px;
+    gap: 8px;
+  }
+
+  .navmenu a {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .header {
+    padding: 0 30px;
+  }
+
+  .header.redesign-header .navmenu {
+    margin-left: 40px;
+  }
+
+  .header.redesign-header .navmenu ul {
+    gap: 20px;
+  }
+
+  .navmenu a {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -376,7 +406,7 @@ body.scrolled .header {
   z-index: 99999;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
   .mobile-nav-toggle {
     display: block;
   }
@@ -2406,7 +2436,7 @@ body.scrolled .header.redesign-header .logo img {
   color: #333333;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
   .header.redesign-header {
     height: 80px;
     padding: 0 20px;
@@ -3872,7 +3902,7 @@ body.scrolled .header.redesign-header .logo img {
 }
 
 /* Header Logout Positioning Styles */
-@media (min-width: 993px) {
+@media (min-width: 1200px) {
   .mobile-only-logout {
     display: none !important;
   }
@@ -3882,7 +3912,7 @@ body.scrolled .header.redesign-header .logo img {
   display: none;
 }
 
-@media (min-width: 993px) {
+@media (min-width: 1200px) {
   .desktop-only-logout {
     display: flex;
     align-items: center;
@@ -4067,7 +4097,7 @@ body.scrolled .header.redesign-header .logo img {
 }
 
 /* Header Logout Positioning Styles */
-@media (min-width: 993px) {
+@media (min-width: 1200px) {
   .mobile-only-logout {
     display: none !important;
   }
@@ -4077,7 +4107,7 @@ body.scrolled .header.redesign-header .logo img {
   display: none;
 }
 
-@media (min-width: 993px) {
+@media (min-width: 1200px) {
   .desktop-only-logout {
     display: flex;
     align-items: center;
@@ -4199,7 +4229,7 @@ body.scrolled .header.redesign-header .logo img {
 }
 
 /* Mobile dropdown styles */
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
   .navmenu .dropdown ul {
     position: static;
     opacity: 1;

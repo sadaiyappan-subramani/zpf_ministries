@@ -39,20 +39,11 @@ export default function Header() {
       </Link>
       <nav className="navmenu align-items-center">
         <ul>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => isActive && location.hash === '' ? 'active' : ''}
-              onClick={closeMobileNav}
-            >
-              Home
-            </NavLink>
-          </li>
           {/* ABOUT DROPDOWN */}
           <li className="dropdown">
             <Link
               to="/about"
-              className={location.pathname === '/about' && location.hash === '' ? 'active' : ''}
+              className={location.pathname === '/about' ? 'active' : ''}
               onClick={closeMobileNav}
             >
               <span>About</span> <i className="bi bi-chevron-down toggle-dropdown"></i>
@@ -75,52 +66,81 @@ export default function Header() {
             </NavLink>
           </li>
 
-          {/* MINISTRIES DROPDOWN */}
-          <li className="dropdown">
-            <a
-              href="#"
-              className={(location.pathname === '/about' && (location.hash === '#zion-ministries' || location.hash === '#deborah-fellowship' || location.hash === '#kids-bible-school' || location.hash === '#edifying-one-another')) ? 'active' : ''}
-              onClick={(e) => e.preventDefault()}
+          {/* MINISTRIES LINK */}
+          <li>
+            <NavLink
+              to="/ministries"
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={closeMobileNav}
             >
-              <span>Ministries</span> <i className="bi bi-chevron-down toggle-dropdown"></i>
-            </a>
-            <ul>
-              <li><Link to="/about#zion-ministries" onClick={closeMobileNav}>Zion Ministries</Link></li>
-              <li><Link to="/about#deborah-fellowship" onClick={closeMobileNav}>Deborah Fellowship</Link></li>
-              <li><Link to="/about#kids-bible-school" onClick={closeMobileNav}>Kids Bible School</Link></li>
-              <li><Link to="/about#edifying-one-another" onClick={closeMobileNav}>Edifying One Another</Link></li>
-            </ul>
+              Ministries
+            </NavLink>
           </li>
 
-          {/* SERMONS & SONGS DROPDOWN */}
-          <li className="dropdown">
-            <Link
+          {/* DEBORAH FELLOWSHIP LINK */}
+          <li>
+            <NavLink
+              to="/deborah-fellowship"
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={closeMobileNav}
+            >
+              Deborah Fellowship
+            </NavLink>
+          </li>
+
+          {/* KIDS BIBLE SCHOOL LINK */}
+          <li>
+            <NavLink
+              to="/kids-bible-school"
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={closeMobileNav}
+            >
+              Kids Bible School
+            </NavLink>
+          </li>
+
+          {/* ZION SONGS LINK */}
+          <li>
+            <NavLink
+              to="/songs"
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={closeMobileNav}
+            >
+              Zion Songs
+            </NavLink>
+          </li>
+
+          {/* SERMONS LINK */}
+          <li>
+            <NavLink
               to="/sermons"
-              className={location.pathname === '/sermons' ? 'active' : ''}
+              className={({ isActive }) => isActive ? 'active' : ''}
               onClick={closeMobileNav}
             >
-              <span>Sermons & Songs</span> <i className="bi bi-chevron-down toggle-dropdown"></i>
-            </Link>
-            <ul>
-              <li><Link to="/sermons?tab=sermons" onClick={closeMobileNav}>Sermons</Link></li>
-              <li><Link to="/sermons?tab=songs" onClick={closeMobileNav}>Zion Songs</Link></li>
-              <li><Link to="/sermons?tab=covers" onClick={closeMobileNav}>Casual Covers</Link></li>
-            </ul>
+              Sermons
+            </NavLink>
           </li>
 
-          {/* LIVE DROPDOWN */}
-          <li className="dropdown">
-            <Link
+          {/* LIVE LINK */}
+          <li>
+            <NavLink
               to="/live"
-              className={location.pathname === '/live' ? 'active' : ''}
+              className={({ isActive }) => isActive ? 'active' : ''}
               onClick={closeMobileNav}
             >
-              <span>Live</span> <i className="bi bi-chevron-down toggle-dropdown"></i>
-            </Link>
-            <ul>
-              <li><Link to="/live" onClick={closeMobileNav}>Live Broadcast</Link></li>
-              <li><Link to="/live#prayer-points" onClick={closeMobileNav}>Prayer Points</Link></li>
-            </ul>
+              Live
+            </NavLink>
+          </li>
+
+          {/* PRAYER POINTS LINK */}
+          <li>
+            <NavLink
+              to="/prayer-points"
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={closeMobileNav}
+            >
+              Prayer Points
+            </NavLink>
           </li>
 
           {/* GALLERY LINK */}

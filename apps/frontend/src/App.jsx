@@ -12,6 +12,11 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import LoginGate from './components/LoginGate'
 import Admin from './pages/Admin'
+import Ministries from './pages/Ministries'
+import DeborahFellowship from './pages/DeborahFellowship'
+import KidsBibleSchool from './pages/KidsBibleSchool'
+import ZionSongs from './pages/ZionSongs'
+import PrayerPoints from './pages/PrayerPoints'
 
 // ScrollRestoration component to scroll to top or hash on page/hash change
 function ScrollToTop() {
@@ -152,6 +157,76 @@ function AnimatedRoutes() {
               className="page-wrapper"
             >
               <Admin />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/ministries" 
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="page-wrapper"
+            >
+              <Ministries />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/deborah-fellowship" 
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="page-wrapper"
+            >
+              <DeborahFellowship />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/kids-bible-school" 
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="page-wrapper"
+            >
+              <KidsBibleSchool />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/songs" 
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="page-wrapper"
+            >
+              <ZionSongs />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/prayer-points" 
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="page-wrapper"
+            >
+              <PrayerPoints />
             </motion.div>
           } 
         />

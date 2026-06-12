@@ -749,16 +749,16 @@ export default function Admin() {
                   onClick={() => toggleDropdown('ministries')}
                   className={`sidebar-link sidebar-dropdown-trigger ${openDropdowns.ministries ? 'open' : ''}`}
                 >
-                  <i className="bi bi-grid-fill"></i>
+                  <i className="bi bi-people-fill"></i>
                   <span style={{ flex: 1 }}>Ministries</span>
                   <i className="bi bi-chevron-down dropdown-chevron"></i>
                 </button>
                 {openDropdowns.ministries && (
                   <ul className="sidebar-submenu">
-                    <li><Link to="/about#zion-ministries">Zion Ministries</Link></li>
-                    <li><Link to="/about#deborah-fellowship">Deborah Fellowship</Link></li>
-                    <li><Link to="/about#kids-bible-school">Kids Bible School</Link></li>
-                    <li><Link to="/about#edifying-one-another">Edifying One Another</Link></li>
+                    <li><Link to="/ministries">Zion Ministries</Link></li>
+                    <li><Link to="/deborah-fellowship">Deborah Fellowship</Link></li>
+                    <li><Link to="/kids-bible-school">Kids Bible School</Link></li>
+                    <li><Link to="/ministries#edifying-one-another">Edifying One Another</Link></li>
                   </ul>
                 )}
               </li>
@@ -775,9 +775,8 @@ export default function Admin() {
                 </button>
                 {openDropdowns.sermons && (
                   <ul className="sidebar-submenu">
-                    <li><Link to="/sermons?tab=sermons">Sermons</Link></li>
-                    <li><Link to="/sermons?tab=songs">Zion Songs</Link></li>
-                    <li><Link to="/sermons?tab=covers">Casual Covers</Link></li>
+                    <li><Link to="/sermons">Sermons</Link></li>
+                    <li><Link to="/songs">Zion Songs</Link></li>
                   </ul>
                 )}
               </li>
@@ -795,7 +794,7 @@ export default function Admin() {
                 {openDropdowns.live && (
                   <ul className="sidebar-submenu">
                     <li><Link to="/live">Live Broadcast</Link></li>
-                    <li><Link to="/live#prayer-points">Prayer Points</Link></li>
+                    <li><Link to="/prayer-points">Prayer Points</Link></li>
                   </ul>
                 )}
               </li>

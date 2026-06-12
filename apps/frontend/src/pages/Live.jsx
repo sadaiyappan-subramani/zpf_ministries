@@ -3,44 +3,6 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export default function Live() {
-  const prayerPoints = [
-    {
-      num: '01',
-      title: 'Spiritual Revival',
-      desc: 'Pray for a deep outpouring of the Holy Spirit upon Zion Prayer Fellowship, local churches, and Chennai.'
-    },
-    {
-      num: '02',
-      title: 'Our Pastors & Servants',
-      desc: 'Pray for wisdom, health, protection, and fresh spiritual anointing upon Bro. Perinba Dhas, Bro. Muhil, and the deacons.'
-    },
-    {
-      num: '03',
-      title: 'Kids & Youth Ministries',
-      desc: 'Pray for the Kids Bible School, teens, and young adults to grow in biblical truth and stands firm in faith.'
-    },
-    {
-      num: '04',
-      title: 'Ongoing Church Construction',
-      desc: 'Pray for the funding, logistics, and safety of workers involved in ongoing rural and branch church buildings.'
-    },
-    {
-      num: '05',
-      title: 'Outreach & Missions',
-      desc: 'Pray for evangelists in mission fields, Jericho prayer drives, and outreach visits to industrial zones.'
-    },
-    {
-      num: '06',
-      title: 'Families & Social Care',
-      desc: 'Intercede for widows, orphans, blind evangelists, sick people, and families facing financial hardships.'
-    }
-  ]
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  }
-
   return (
     <main className="main redesign-mode">
       
@@ -123,52 +85,6 @@ export default function Live() {
           </div>
         </div>
       </section>
-
-      {/* 13. PRAYER POINTS SECTION */}
-      <section className="redesign-section gray-bg" id="prayer-points">
-        <div className="container">
-          <div className="redesign-section-header">
-            <h2>Regular Prayer Points</h2>
-            <p>Join us in daily intercession and prayer for these key ministry areas.</p>
-          </div>
-
-          <div className="row g-4">
-            {prayerPoints.map((point, idx) => (
-              <div className="col-lg-4 col-md-6" key={idx}>
-                <motion.div
-                  className="campus-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                  style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '25px' }}
-                >
-                  <span style={{
-                    fontSize: '1.8rem',
-                    fontWeight: 900,
-                    color: '#2563eb',
-                    background: '#eff6ff',
-                    padding: '8px 12px',
-                    borderRadius: '8px',
-                    lineHeight: 1
-                  }}>
-                    {point.num}
-                  </span>
-                  <div>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '8px' }}>
-                      {point.title}
-                    </h3>
-                    <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', margin: 0 }}>
-                      {point.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
     </main>
   )
 }
