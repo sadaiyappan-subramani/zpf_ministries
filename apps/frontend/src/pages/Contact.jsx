@@ -70,8 +70,8 @@ export default function Contact() {
           </motion.h1>
           <div className="breadcrumbs">
             <Link to="/">Home</Link>
-            <span className="mx-2" style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Contact</span>
+            <span className="mx-2" style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+            <span style={{ color: 'var(--accent-gold)' }}>Contact</span>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function Contact() {
               <motion.div 
                 className="contact-info-box" 
                 variants={fadeInUp}
-                whileHover={{ y: -5, borderColor: 'rgba(229,193,88,0.5)', boxShadow: 'var(--gold-glow)' }}
+                whileHover={{ y: -5, borderColor: 'var(--border-gold-focus)', boxShadow: 'var(--gold-glow)' }}
               >
                 <div className="icon-box">
                   <i className="bi bi-geo-alt"></i>
@@ -110,7 +110,7 @@ export default function Contact() {
               <motion.div 
                 className="contact-info-box" 
                 variants={fadeInUp}
-                whileHover={{ y: -5, borderColor: 'rgba(229,193,88,0.5)', boxShadow: 'var(--gold-glow)' }}
+                whileHover={{ y: -5, borderColor: 'var(--border-gold-focus)', boxShadow: 'var(--gold-glow)' }}
               >
                 <div className="icon-box">
                   <i className="bi bi-envelope"></i>
@@ -128,7 +128,7 @@ export default function Contact() {
               <motion.div 
                 className="contact-info-box" 
                 variants={fadeInUp}
-                whileHover={{ y: -5, borderColor: 'rgba(229,193,88,0.5)', boxShadow: 'var(--gold-glow)' }}
+                whileHover={{ y: -5, borderColor: 'var(--border-gold-focus)', boxShadow: 'var(--gold-glow)' }}
               >
                 <div className="icon-box">
                   <i className="bi bi-headset"></i>
@@ -153,7 +153,7 @@ export default function Contact() {
           transition={{ duration: 1 }}
           style={{ padding: '0 15px', marginBottom: '60px' }}
         >
-          <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid #eaeaea', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.05)' }}>
+          <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid var(--border-gold-light)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)' }}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.88653927238!2d80.06892543329971!3d12.981146747209673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x82a477911094864e!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%" 

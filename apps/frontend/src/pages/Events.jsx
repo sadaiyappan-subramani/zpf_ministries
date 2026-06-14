@@ -160,185 +160,194 @@ export default function Events() {
     fetchMeetings()
   }, [])
 
-  const filteredMeetings = activeTab === 'all' 
-    ? meetingsList 
+  const filteredMeetings = activeTab === 'all'
+    ? meetingsList
     : meetingsList.filter(m => m.category === activeTab)
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 25 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: {
+      opacity: 1, y: 0, transition: {
+        duration: 0.5
+      }
+    }
   }
 
   return (
     <main className="main redesign-mode">
-      
-      {/* Hero Banner */}
-      <div className="about-banner">
-        <div className="container">
-          <h1>Our Meetings</h1>
-          <div className="breadcrumbs">
-            <Link to="/">Home</Link>
-            <span style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Meetings</span>
+
+            {/* Hero Banner */ }
+            < div className = "about-banner" >
+              <div className="container">
+                <h1>Our Meetings</h1>
+                <div className="breadcrumbs">
+                  <Link to="/">Home</Link>
+                  <span style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+                  <span style={{ color: 'var(--text-cream)' }}>Meetings</span>
+                </div>
+              </div>
+      </div >
+
+    {/* Meetings Schedule Section */ }
+    < section className = "redesign-section light-bg" >
+      <div className="container">
+        <div className="redesign-section-header">
+          <h2>Regular Service & Prayer Times</h2>
+          <p>Join us in fellowship, prayer, and study during our scheduled service hours.</p>
+        </div>
+
+        {/* Navigation Category Tabs */}
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '40px' }}>
+          {categories.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              style={{
+                background: activeTab === tab.id ? 'var(--gold-metallic)' : 'rgba(16, 20, 35, 0.6)',
+                color: activeTab === tab.id ? '#050609' : 'var(--text-cosmic)',
+                border: activeTab === tab.id ? 'none' : '1px solid var(--border-gold-light)',
+                padding: '10px 20px',
+                borderRadius: '30px',
+                fontSize: '0.9rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid Layout of Filtered Meetings */}
+        <div className="row g-4">
+          {filteredMeetings.map((meeting, idx) => (
+            <div className="col-lg-4 col-md-6" key={idx}>
+              <motion.div
+                className="campus-card"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                style={{ position: 'relative' }}
+              >
+                {/* Badge */}
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    background: meeting.locationType.includes('Online Only') ? 'rgba(239, 68, 68, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+                    color: meeting.locationType.includes('Online Only') ? '#fca5a5' : 'var(--text-cosmic)',
+                    padding: '4px 10px',
+                    borderRadius: '20px',
+                    border: '1px solid ' + (meeting.locationType.includes('Online Only') ? 'rgba(239, 68, 68, 0.3)' : 'rgba(255, 255, 255, 0.1)')
+                  }}
+                >
+                  {meeting.locationType}
+                </span>
+
+                <i className={`bi ${meeting.icon} campus-card-icon`} style={{
+                  color: meeting.color === 'blue' ? '#60a5fa' :
+                    meeting.color === 'orange' ? '#fb923c' :
+                      meeting.color === 'purple' ? '#c084fc' : '#4ade80',
+                  filter: 'drop-shadow(0 0 8px ' + (
+                    meeting.color === 'blue' ? 'rgba(96, 165, 250, 0.4)' :
+                      meeting.color === 'orange' ? 'rgba(251, 146, 60, 0.4)' :
+                        meeting.color === 'purple' ? 'rgba(192, 132, 252, 0.4)' : 'rgba(74, 222, 128, 0.4)'
+                  ) + ')'
+                }}></i>
+
+                <h3 className="campus-card-title" style={{ fontSize: '1.25rem', marginTop: '10px' }}>
+                  {meeting.title}
+                </h3>
+
+                <p className="campus-card-desc" style={{ marginBottom: '15px' }}>
+                  <i className="bi bi-calendar3 me-2" style={{ color: 'var(--accent-gold)', marginRight: '8px' }}></i>
+                  <strong style={{ color: 'var(--text-cream)' }}>Schedule:</strong> {meeting.schedule}
+                </p>
+
+                <div className="campus-card-timings" style={{ borderTop: '1px dashed rgba(229, 193, 88, 0.16)', paddingTop: '12px', marginTop: 'auto', marginBottom: 0 }}>
+                  <i className="bi bi-clock me-2" style={{ color: 'var(--accent-gold)', marginRight: '8px' }}></i>
+                  <strong style={{ color: 'var(--text-cream)' }}>Timing:</strong> {meeting.timing}
+                  {meeting.note && (
+                    <div style={{ fontSize: '0.8rem', color: '#fdbb74', marginTop: '8px', fontWeight: 600 }}>
+                      <i className="bi bi-exclamation-circle me-1" style={{ marginRight: '4px' }}></i> {meeting.note}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+      </section >
+
+    {/* Occasional Prayers Section */ }
+    < section className = "redesign-section gray-bg" >
+      <div className="container">
+        <div className="redesign-section-header">
+          <h2>Occasional Prayers</h2>
+          <p>We are here to pray with you and your family for every milestone, thanksgiving, and special occasion.</p>
+        </div>
+
+        <div className="row g-4">
+          {/* 1. Cottage Prayers */}
+          <div className="col-md-6">
+            <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
+              <i className="bi bi-house-heart" style={{ fontSize: '2.5rem', color: '#60a5fa', filter: 'drop-shadow(0 0 8px rgba(96, 165, 250, 0.4))' }}></i>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-cream)' }}>Cottage Prayers</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-cosmic)', lineHeight: '1.6', margin: 0 }}>
+                  We conduct house blessing and cottage prayers. Contact our pastors to schedule a fellowship gathering at your home.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Thanksgiving Prayers */}
+          <div className="col-md-6">
+            <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
+              <i className="bi bi-gift" style={{ fontSize: '2.5rem', color: '#fb923c', filter: 'drop-shadow(0 0 8px rgba(251, 146, 60, 0.4))' }}></i>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-cream)' }}>Thanksgiving Prayers</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-cosmic)', lineHeight: '1.6', margin: 0 }}>
+                  Celebrate God's faithfulness in birthdays, anniversaries, promotion achievements, and new family beginnings.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Baby Shower Prayers */}
+          <div className="col-md-6">
+            <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
+              <i className="bi bi-balloon" style={{ fontSize: '2.5rem', color: '#c084fc', filter: 'drop-shadow(0 0 8px rgba(192, 132, 252, 0.4))' }}></i>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-cream)' }}>Baby Shower Prayers</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-cosmic)', lineHeight: '1.6', margin: 0 }}>
+                  Join us in intercession for pregnant mothers, praying for safe delivery and blessing the child for God's glory.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Puberty-Thanksgiving Prayers */}
+          <div className="col-md-6">
+            <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
+              <i className="bi bi-star" style={{ fontSize: '2.5rem', color: '#fbbf24', filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.4))' }}></i>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-cream)' }}>Puberty-Thanksgiving Prayers</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-cosmic)', lineHeight: '1.6', margin: 0 }}>
+                  Dedicated prayers for young children transitioning into adulthood, thanking God for growth and blessing their paths.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Meetings Schedule Section */}
-      <section className="redesign-section light-bg">
-        <div className="container">
-          <div className="redesign-section-header">
-            <h2>Regular Service & Prayer Times</h2>
-            <p>Join us in fellowship, prayer, and study during our scheduled service hours.</p>
-          </div>
-
-          {/* Navigation Category Tabs */}
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '40px' }}>
-            {categories.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                style={{
-                  background: activeTab === tab.id ? '#222' : '#f1f1f1',
-                  color: activeTab === tab.id ? '#fff' : '#333',
-                  border: 'none',
-                  padding: '10px 20px',
-                  borderRadius: '30px',
-                  fontSize: '0.9rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Grid Layout of Filtered Meetings */}
-          <div className="row g-4">
-            {filteredMeetings.map((meeting, idx) => (
-              <div className="col-lg-4 col-md-6" key={idx}>
-                <motion.div
-                  className="campus-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                  style={{ position: 'relative' }}
-                >
-                  {/* Badge */}
-                  <span
-                    style={{
-                      position: 'absolute',
-                      top: '20px',
-                      right: '20px',
-                      fontSize: '0.75rem',
-                      fontWeight: 700,
-                      background: meeting.locationType.includes('Online Only') ? '#fee2e2' : '#f1f5f9',
-                      color: meeting.locationType.includes('Online Only') ? '#ef4444' : '#475569',
-                      padding: '4px 10px',
-                      borderRadius: '20px'
-                    }}
-                  >
-                    {meeting.locationType}
-                  </span>
-
-                  <i className={`bi ${meeting.icon} campus-card-icon`} style={{
-                    color: meeting.color === 'blue' ? '#2563eb' : 
-                           meeting.color === 'orange' ? '#f97316' : 
-                           meeting.color === 'purple' ? '#a855f7' : '#22c55e'
-                  }}></i>
-                  
-                  <h3 className="campus-card-title" style={{ fontSize: '1.25rem', marginTop: '10px' }}>
-                    {meeting.title}
-                  </h3>
-                  
-                  <p className="campus-card-desc" style={{ marginBottom: '15px' }}>
-                    <i className="bi bi-calendar3 me-2" style={{ color: '#888', marginRight: '8px' }}></i>
-                    <strong>Schedule:</strong> {meeting.schedule}
-                  </p>
-
-                  <div className="campus-card-timings" style={{ borderTop: '1px dashed #eaeaea', paddingTop: '12px', marginTop: 'auto', marginBottom: 0 }}>
-                    <i className="bi bi-clock me-2" style={{ color: '#888', marginRight: '8px' }}></i>
-                    <strong>Timing:</strong> {meeting.timing}
-                    {meeting.note && (
-                      <div style={{ fontSize: '0.8rem', color: '#e67e22', marginTop: '8px', fontWeight: 600 }}>
-                        <i className="bi bi-exclamation-circle me-1" style={{ marginRight: '4px' }}></i> {meeting.note}
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Occasional Prayers Section */}
-      <section className="redesign-section gray-bg">
-        <div className="container">
-          <div className="redesign-section-header">
-            <h2>Occasional Prayers</h2>
-            <p>We are here to pray with you and your family for every milestone, thanksgiving, and special occasion.</p>
-          </div>
-
-          <div className="row g-4">
-            {/* 1. Cottage Prayers */}
-            <div className="col-md-6">
-              <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
-                <i className="bi bi-house-heart" style={{ fontSize: '2.5rem', color: '#2563eb' }}></i>
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>Cottage Prayers</h3>
-                  <p style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                    We conduct house blessing and cottage prayers. Contact our pastors to schedule a fellowship gathering at your home.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 2. Thanksgiving Prayers */}
-            <div className="col-md-6">
-              <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
-                <i className="bi bi-gift" style={{ fontSize: '2.5rem', color: '#f97316' }}></i>
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>Thanksgiving Prayers</h3>
-                  <p style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                    Celebrate God's faithfulness in birthdays, anniversaries, promotion achievements, and new family beginnings.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 3. Baby Shower Prayers */}
-            <div className="col-md-6">
-              <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
-                <i className="bi bi-balloon" style={{ fontSize: '2.5rem', color: '#a855f7' }}></i>
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>Baby Shower Prayers</h3>
-                  <p style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                    Join us in intercession for pregnant mothers, praying for safe delivery and blessing the child for God's glory.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 4. Puberty-Thanksgiving Prayers */}
-            <div className="col-md-6">
-              <div className="campus-card" style={{ flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '30px' }}>
-                <i className="bi bi-star" style={{ fontSize: '2.5rem', color: '#eab308' }}></i>
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>Puberty-Thanksgiving Prayers</h3>
-                  <p style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                    Dedicated prayers for young children transitioning into adulthood, thanking God for growth and blessing their paths.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
+      </section >
+    </main >
   )
 }

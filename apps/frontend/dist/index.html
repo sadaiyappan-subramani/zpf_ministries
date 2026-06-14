@@ -16,11 +16,19 @@
 
   <!-- Vendor Icons -->
   <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-BLdRjriE.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BZeZVwwJ.css">
+  <script type="module" crossorigin src="/assets/index-LrH1mzX8.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CV8FuMT3.css">
 </head>
 
 <body>
+  <script>
+    (function () {
+      const theme = localStorage.getItem('zpf_theme') || 'light';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
   <div id="root"></div>
 </body>
 

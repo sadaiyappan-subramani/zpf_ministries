@@ -55,14 +55,14 @@ export default function Sermons() {
           <h1>Sermons</h1>
           <div className="breadcrumbs">
             <Link to="/">Home</Link>
-            <span style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Sermons</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+            <span style={{ color: 'var(--accent-gold)' }}>Sermons</span>
           </div>
         </div>
       </div>
 
       {/* Sermons Categories Grid */}
-      <section className="redesign-section light-bg">
+      <section className="redesign-section">
         <div className="container">
           <div className="redesign-section-header">
             <h2>Our Sermon Library</h2>
@@ -81,16 +81,15 @@ export default function Sermons() {
                 <motion.div
                   className="campus-card"
                   variants={fadeInUp}
-                  style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                  <i className={`bi ${sermon.icon} campus-card-icon`} style={{ color: '#2563eb', fontSize: '2rem', marginBottom: '15px' }}></i>
-                  <h3 className="campus-card-title" style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                  <i className={`bi ${sermon.icon} campus-card-icon`}></i>
+                  <h3 className="campus-card-title">
                     {sermon.title}
                   </h3>
-                  <p className="campus-card-desc" style={{ fontSize: '0.88rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                  <p className="campus-card-desc">
                     {sermon.desc}
                   </p>
-                  <Link to="/contact" className="campus-card-btn" style={{ marginTop: 'auto', display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#2563eb', textDecoration: 'none', fontWeight: 700 }}>
+                  <Link to="/contact" className="campus-card-btn">
                     Browse Sermons <i className="bi bi-arrow-right"></i>
                   </Link>
                 </motion.div>

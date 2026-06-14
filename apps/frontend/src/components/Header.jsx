@@ -5,6 +5,23 @@ export default function Header() {
   const [isMobileActive, setIsMobileActive] = useState(false)
   const location = useLocation()
 
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('zpf_theme') || 'light'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('zpf_theme', theme)
+    if (theme === 'light') {
+      document.body.classList.add('light-theme')
+    } else {
+      document.body.classList.remove('light-theme')
+    }
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
+  }
+
   const toggleMobileNav = () => {
     setIsMobileActive(!isMobileActive)
   }
@@ -165,6 +182,16 @@ export default function Header() {
           )}
         </ul>
       </nav>
+
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className="theme-toggle-btn"
+        aria-label="Toggle Theme"
+        title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Theme`}
+      >
+        <i className={`bi ${theme === 'light' ? 'bi-moon-stars-fill' : 'bi-sun-fill'}`}></i>
+      </button>
 
       {sessionStorage.getItem('zpf_logged_in') === 'true' && (
         <div className="desktop-only-logout">

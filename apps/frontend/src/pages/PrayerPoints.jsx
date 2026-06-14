@@ -99,20 +99,20 @@ export default function PrayerPoints() {
   return (
     <main className="main redesign-mode">
 
-      {/* Page Banner */}
+      {/* Page Header */}
       <div className="about-banner">
         <div className="container">
           <h1>Regular Prayer Points</h1>
           <div className="breadcrumbs">
             <Link to="/">Home</Link>
-            <span style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Prayer Points</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+            <span style={{ color: 'var(--accent-gold)' }}>Prayer Points</span>
           </div>
         </div>
       </div>
 
       {/* Interactive Presentation Slides Area */}
-      <section className="redesign-section light-bg">
+      <section className="redesign-section">
         <div className="container">
           <div className="redesign-section-header" style={{ marginBottom: '40px' }}>
             <h2>Intercessory Prayer Slides</h2>
@@ -127,10 +127,10 @@ export default function PrayerPoints() {
                 transition={{ duration: 0.5 }}
                 style={{
                   position: 'relative',
-                  background: '#ffffff',
-                  border: '1px solid #eaeaea',
+                  background: 'var(--bg-glass)',
+                  border: '1px solid var(--border-gold-light)',
                   borderRadius: '20px',
-                  boxShadow: '0 15px 45px rgba(0, 0, 0, 0.05)',
+                  boxShadow: '0 15px 45px rgba(0, 0, 0, 0.4)',
                   overflow: 'hidden'
                 }}
               >
@@ -162,7 +162,7 @@ export default function PrayerPoints() {
                           zIndex: 2
                         }}
                       >
-                        <span style={{ fontSize: '0.8rem', color: '#bf953f', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                        <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>
                           {slides[activeSlide].subtitle}
                         </span>
                       </div>
@@ -172,10 +172,10 @@ export default function PrayerPoints() {
                   {/* Right Column: Key Bullet Points */}
                   <div className="col-md-6">
                     <div style={{ padding: '40px' }}>
-                      <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '25px' }}>
+                      <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '25px' }}>
                         {slides[activeSlide].title}
                       </h3>
-                      <ul style={{ paddingLeft: '20px', color: '#555', fontSize: '0.95rem', lineHeight: '1.8', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      <ul style={{ paddingLeft: '20px', color: 'var(--text-cosmic)', fontSize: '0.95rem', lineHeight: '1.8', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         {slides[activeSlide].bulletPoints.map((pt, i) => (
                           <li key={i}>{pt}</li>
                         ))}
@@ -188,8 +188,8 @@ export default function PrayerPoints() {
                 {/* Slides Navigation Bar */}
                 <div
                   style={{
-                    background: '#fcfcfc',
-                    borderTop: '1px solid #eee',
+                    background: 'rgba(255, 255, 255, 0.01)',
+                    borderTop: '1px solid var(--border-gold-light)',
                     padding: '15px 30px',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -207,7 +207,7 @@ export default function PrayerPoints() {
                           width: '10px',
                           height: '10px',
                           borderRadius: '50%',
-                          background: activeSlide === i ? '#2563eb' : '#ccc',
+                          background: activeSlide === i ? 'var(--accent-gold)' : 'rgba(255, 255, 255, 0.2)',
                           border: 'none',
                           padding: 0,
                           cursor: 'pointer',
@@ -222,8 +222,8 @@ export default function PrayerPoints() {
                     <button
                       onClick={handlePrevSlide}
                       style={{
-                        background: '#fff',
-                        border: '1px solid #ddd',
+                        background: 'rgba(229, 193, 88, 0.05)',
+                        border: '1px solid var(--border-gold-light)',
                         width: '40px',
                         height: '40px',
                         borderRadius: '50%',
@@ -231,19 +231,19 @@ export default function PrayerPoints() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         cursor: 'pointer',
-                        color: '#333',
+                        color: 'var(--accent-gold)',
                         transition: 'all 0.2s'
                       }}
-                      onMouseEnter={e => e.currentTarget.style.borderColor = '#2563eb'}
-                      onMouseLeave={e => e.currentTarget.style.borderColor = '#ddd'}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--border-gold-focus)'; e.currentTarget.style.boxShadow = 'var(--gold-glow)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-gold-light)'; e.currentTarget.style.boxShadow = 'none'; }}
                     >
                       <i className="bi bi-chevron-left"></i>
                     </button>
                     <button
                       onClick={handleNextSlide}
                       style={{
-                        background: '#fff',
-                        border: '1px solid #ddd',
+                        background: 'rgba(229, 193, 88, 0.05)',
+                        border: '1px solid var(--border-gold-light)',
                         width: '40px',
                         height: '40px',
                         borderRadius: '50%',
@@ -251,11 +251,11 @@ export default function PrayerPoints() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         cursor: 'pointer',
-                        color: '#333',
+                        color: 'var(--accent-gold)',
                         transition: 'all 0.2s'
                       }}
-                      onMouseEnter={e => e.currentTarget.style.borderColor = '#2563eb'}
-                      onMouseLeave={e => e.currentTarget.style.borderColor = '#ddd'}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--border-gold-focus)'; e.currentTarget.style.boxShadow = 'var(--gold-glow)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-gold-light)'; e.currentTarget.style.boxShadow = 'none'; }}
                     >
                       <i className="bi bi-chevron-right"></i>
                     </button>
@@ -269,7 +269,7 @@ export default function PrayerPoints() {
       </section>
 
       {/* Grid of the 6 Structured Prayer Points */}
-      <section className="redesign-section gray-bg" id="list">
+      <section className="redesign-section" id="list">
         <div className="container">
           <div className="redesign-section-header">
             <h2>Our Weekly Prayer Shield</h2>
@@ -288,21 +288,22 @@ export default function PrayerPoints() {
                   style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'flex-start', padding: '25px', height: '100%' }}
                 >
                   <span style={{
-                    fontSize: '1.8rem',
+                    fontSize: '1.2rem',
                     fontWeight: 900,
-                    color: '#2563eb',
-                    background: '#eff6ff',
-                    padding: '8px 12px',
+                    color: '#050609',
+                    background: 'var(--gold-metallic)',
+                    boxShadow: 'var(--gold-glow)',
+                    padding: '8px 14px',
                     borderRadius: '8px',
                     lineHeight: 1
                   }}>
                     {point.num}
                   </span>
                   <div>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '8px' }}>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '8px' }}>
                       {point.title}
                     </h3>
-                    <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', margin: 0 }}>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-cosmic)', lineHeight: '1.5', margin: 0 }}>
                       {point.desc}
                     </p>
                   </div>

@@ -28,8 +28,8 @@ export default function DeborahFellowship() {
           <h1>Deborah Fellowship</h1>
           <div className="breadcrumbs">
             <Link to="/">Home</Link>
-            <span style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Deborah Fellowship</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+            <span style={{ color: 'var(--text-cream)' }}>Deborah Fellowship</span>
           </div>
         </div>
       </div>
@@ -47,26 +47,26 @@ export default function DeborahFellowship() {
                 viewport={{ once: true }}
                 variants={staggerContainer}
               >
-                <motion.h2 variants={fadeInUp} style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '20px', color: '#1a1a1a' }}>
+                <motion.h2 variants={fadeInUp} style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '20px', color: 'var(--accent-gold)' }}>
                   Women's Prayer Fellowship
                 </motion.h2>
-                <motion.p className="lead" variants={fadeInUp} style={{ color: '#555', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '25px' }}>
+                <motion.p className="lead" variants={fadeInUp} style={{ color: 'var(--text-cosmic)', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '25px' }}>
                   Deborah Fellowship is a monthly prayer sanctuary dedicated to bringing women together to intercede for their families, local church ministries, outreach missions, and the neighborhood.
                 </motion.p>
-                <motion.p variants={fadeInUp} style={{ color: '#666', lineHeight: '1.6', marginBottom: '30px' }}>
+                <motion.p variants={fadeInUp} style={{ color: 'var(--text-cosmic)', lineHeight: '1.6', marginBottom: '30px' }}>
                   Named after the biblical prophetess Deborah, who stood as a mother in Israel, we believe in empowering wives, mothers, and sisters to grow in spiritual leadership, scriptural wisdom, and prayerful intercession.
                 </motion.p>
 
                 {/* Schedule & Timing Info Block */}
-                <motion.div variants={fadeInUp} style={{ background: '#faf5ff', borderLeft: '4px solid #a855f7', padding: '24px', borderRadius: '0 12px 12px 0', marginBottom: '30px' }}>
-                  <h4 style={{ fontWeight: 800, color: '#6b21a8', marginBottom: '10px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <motion.div variants={fadeInUp} style={{ background: 'rgba(168, 85, 247, 0.08)', borderLeft: '4px solid #a855f7', padding: '24px', borderRadius: '0 12px 12px 0', marginBottom: '30px' }}>
+                  <h4 style={{ fontWeight: 800, color: '#c084fc', marginBottom: '10px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <i className="bi bi-clock-fill"></i> Schedule & Timings
                   </h4>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.95rem', color: '#444', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <li><strong>Timing:</strong> 8:00 PM – 9:30 PM</li>
-                    <li><strong>Frequency:</strong> Every First Wednesday of the Month</li>
-                    <li style={{ borderTop: '1px dashed #d8b4fe', paddingTop: '8px', marginTop: '4px' }}>
-                      <strong>Participation:</strong> Open to all women, wives, and mothers in the fellowship.
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.95rem', color: 'var(--text-cosmic)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <li><strong style={{ color: 'var(--text-cream)' }}>Timing:</strong> 8:00 PM – 9:30 PM</li>
+                    <li><strong style={{ color: 'var(--text-cream)' }}>Frequency:</strong> Every First Wednesday of the Month</li>
+                    <li style={{ borderTop: '1px dashed rgba(168, 85, 247, 0.25)', paddingTop: '8px', marginTop: '4px' }}>
+                      <strong style={{ color: 'var(--text-cream)' }}>Participation:</strong> Open to all women, wives, and mothers in the fellowship.
                     </li>
                   </ul>
                 </motion.div>
@@ -81,17 +81,17 @@ export default function DeborahFellowship() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <SpotlightCard className="campus-card" spotlightColor="rgba(168, 85, 247, 0.08)" style={{ padding: '40px', border: '1px solid #eaeaea', borderRadius: '16px', background: '#fff' }}>
+                <SpotlightCard className="campus-card" spotlightColor="rgba(168, 85, 247, 0.08)" style={{ padding: '40px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px' }}>
-                    <i className="bi bi-gender-female" style={{ fontSize: '3rem', color: '#a855f7' }}></i>
-                    <span style={{ fontSize: '0.8rem', background: '#fae8ff', color: '#86198f', padding: '5px 14px', borderRadius: '20px', fontWeight: 700 }}>
+                    <i className="bi bi-gender-female" style={{ fontSize: '3rem', color: '#a855f7', filter: 'drop-shadow(0 0 8px rgba(168, 85, 247, 0.4))' }}></i>
+                    <span style={{ fontSize: '0.8rem', background: 'rgba(168, 85, 247, 0.15)', color: '#c084fc', padding: '5px 14px', borderRadius: '20px', fontWeight: 700, border: '1px solid rgba(168, 85, 247, 0.3)' }}>
                       Join Us
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '20px' }}>Focus Areas & Activities</h3>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '20px' }}>Focus Areas & Activities</h3>
                   
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px', fontSize: '0.9rem', color: '#555', marginBottom: '35px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px', fontSize: '0.9rem', color: 'var(--text-cosmic)', marginBottom: '35px' }}>
                     {[
                       'Intercessory Prayer',
                       'Family Blessings',
@@ -111,7 +111,7 @@ export default function DeborahFellowship() {
                     <Link to="/events" className="btn-secondary" style={{ flex: 1, textAlign: 'center', fontSize: '0.85rem', padding: '12px 0', border: '1px solid #bf953f', borderRadius: '30px', textDecoration: 'none' }}>
                       Meetings Page
                     </Link>
-                    <Link to="/contact" className="btn-primary" style={{ flex: 1, textAlign: 'center', fontSize: '0.85rem', padding: '12px 0', background: 'linear-gradient(135deg, #bf953f 0%, #b38728 100%)', color: '#050609', border: 'none', borderRadius: '30px', fontWeight: 700, textDecoration: 'none' }}>
+                    <Link to="/contact" className="btn-primary" style={{ flex: 1, textAlign: 'center', fontSize: '0.85rem', padding: '12px 0', background: 'var(--gold-metallic)', color: '#050609', border: 'none', borderRadius: '30px', fontWeight: 700, textDecoration: 'none' }}>
                       Join / Contact
                     </Link>
                   </div>

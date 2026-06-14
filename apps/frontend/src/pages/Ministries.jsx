@@ -28,14 +28,14 @@ export default function Ministries() {
           <h1>Our Ministries</h1>
           <div className="breadcrumbs">
             <Link to="/">Home</Link>
-            <span style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Ministries</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+            <span style={{ color: 'var(--accent-gold)' }}>Ministries</span>
           </div>
         </div>
       </div>
 
       {/* 2. Ministries & Equipping Sections */}
-      <section className="redesign-section light-bg">
+      <section className="redesign-section">
         <div className="container">
           <div className="redesign-section-header">
             <h2>Outreach & Support</h2>
@@ -52,18 +52,18 @@ export default function Ministries() {
             variants={staggerContainer}
           >
             {[
-              { title: 'Church Construction', desc: 'Constructed new houses of worship and currently supporting ongoing building projects in rural zones.', icon: 'bi-bank', color: '#f97316' },
-              { title: 'Churches Supported', desc: 'Providing financial and spiritual backing to local churches, evangelists, and pastors.', icon: 'bi-heart-fill', color: '#f97316' },
-              { title: 'Kids & Orphan Education', desc: 'Funding basic education, classroom support, and study fees for orphans and children in need.', icon: 'bi-mortarboard', color: '#f97316' },
-              { title: 'Bible College Students', desc: 'Supporting students studying theology to become future ministers of the Gospel.', icon: 'bi-backpack', color: '#f97316' },
-              { title: 'Social Care Ministries', desc: 'Providing widow support, aiding blind evangelists, and funding treatments for sick people.', icon: 'bi-bandaid', color: '#f97316' }
+              { title: 'Church Construction', desc: 'Constructed new houses of worship and currently supporting ongoing building projects in rural zones.', icon: 'bi-bank', color: 'var(--accent-gold)' },
+              { title: 'Churches Supported', desc: 'Providing financial and spiritual backing to local churches, evangelists, and pastors.', icon: 'bi-heart-fill', color: 'var(--accent-gold)' },
+              { title: 'Kids & Orphan Education', desc: 'Funding basic education, classroom support, and study fees for orphans and children in need.', icon: 'bi-mortarboard', color: 'var(--accent-gold)' },
+              { title: 'Bible College Students', desc: 'Supporting students studying theology to become future ministers of the Gospel.', icon: 'bi-backpack', color: 'var(--accent-gold)' },
+              { title: 'Social Care Ministries', desc: 'Providing widow support, aiding blind evangelists, and funding treatments for sick people.', icon: 'bi-bandaid', color: 'var(--accent-gold)' }
             ].map((item, idx) => (
               <div className="col-lg-4 col-md-6" key={idx}>
                 <motion.div variants={fadeInUp} style={{ height: '100%' }}>
                   <div className="campus-card" style={{ height: '100%', padding: '24px' }}>
                     <i className={`bi ${item.icon}`} style={{ fontSize: '1.8rem', color: item.color, marginBottom: '10px' }}></i>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1a1a1a', marginBottom: '8px' }}>{item.title}</h4>
-                    <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', margin: 0 }}>{item.desc}</p>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-cream)', marginBottom: '8px' }}>{item.title}</h4>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-cosmic)', lineHeight: '1.5', margin: 0 }}>{item.desc}</p>
                   </div>
                 </motion.div>
               </div>
@@ -78,15 +78,15 @@ export default function Ministries() {
             transition={{ duration: 0.6 }}
             style={{ marginBottom: '80px' }}
           >
-            <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ border: '1px solid #eaeaea', borderRadius: '16px', overflow: 'hidden' }}>
+            <SpotlightCard className="feature-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ border: '1px solid var(--border-gold-light)', borderRadius: '16px', overflow: 'hidden', background: 'var(--bg-glass)' }}>
               <div className="row g-0 align-items-center">
                 <div className="col-lg-6">
                   <div style={{ padding: '40px' }}>
-                    <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase', display: 'inline-block', marginBottom: '15px' }}>
+                    <span style={{ background: 'rgba(229, 193, 88, 0.1)', color: 'var(--accent-gold)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase', display: 'inline-block', marginBottom: '15px' }}>
                       Outreach Ministry
                     </span>
-                    <h4 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '15px' }}>Jericho Prayer Drives</h4>
-                    <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
+                    <h4 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '15px' }}>Jericho Prayer Drives</h4>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-cosmic)', lineHeight: '1.6', margin: 0 }}>
                       We drive prayers actively through cities, invoking blessings, and praising God in industrial areas, neighborhoods, and outreach pathways to proclaim His glory and cover the land in prayer.
                     </p>
                   </div>
@@ -115,20 +115,20 @@ export default function Ministries() {
               {/* Category 1: Spiritual Growth */}
               <div className="col-lg-4 col-md-6">
                 <motion.div variants={fadeInUp} style={{ height: '100%' }}>
-                  <SpotlightCard className="campus-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <i className="bi bi-book-half" style={{ fontSize: '2rem', color: '#2563eb', marginBottom: '15px', display: 'block' }}></i>
-                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: '#1a1a1a' }}>Spiritual Growth</h4>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#555' }}>
+                  <SpotlightCard className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <i className="bi bi-book-half" style={{ fontSize: '2rem', color: 'var(--accent-gold)', marginBottom: '15px', display: 'block' }}></i>
+                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-cream)' }}>Spiritual Growth</h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: 'var(--text-cosmic)' }}>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Partaking in all Fellowships
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Bible Knowledge & Tests
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Spiritual Mentorship Training
                       </li>
                     </ul>
@@ -139,20 +139,20 @@ export default function Ministries() {
               {/* Category 2: Leadership & Service */}
               <div className="col-lg-4 col-md-6">
                 <motion.div variants={fadeInUp} style={{ height: '100%' }}>
-                  <SpotlightCard className="campus-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <i className="bi bi-award-fill" style={{ fontSize: '2rem', color: '#2563eb', marginBottom: '15px', display: 'block' }}></i>
-                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: '#1a1a1a' }}>Leadership & Service</h4>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#555' }}>
+                  <SpotlightCard className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <i className="bi bi-award-fill" style={{ fontSize: '2rem', color: 'var(--accent-gold)', marginBottom: '15px', display: 'block' }}></i>
+                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-cream)' }}>Leadership & Service</h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: 'var(--text-cosmic)' }}>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Preaching & Serving
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Engaging in Support Ministries
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Haggai Leadership Training
                       </li>
                     </ul>
@@ -163,20 +163,20 @@ export default function Ministries() {
               {/* Category 3: Missions & Studies */}
               <div className="col-lg-4 col-md-6">
                 <motion.div variants={fadeInUp} style={{ height: '100%' }}>
-                  <SpotlightCard className="campus-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <i className="bi bi-globe-americas" style={{ fontSize: '2rem', color: '#2563eb', marginBottom: '15px', display: 'block' }}></i>
-                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: '#1a1a1a' }}>Missions & Studies</h4>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#555' }}>
+                  <SpotlightCard className="campus-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ padding: '25px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <i className="bi bi-globe-americas" style={{ fontSize: '2rem', color: 'var(--accent-gold)', marginBottom: '15px', display: 'block' }}></i>
+                    <h4 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-cream)' }}>Missions & Studies</h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: 'var(--text-cosmic)' }}>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Visiting Active Mission Fields
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Short-term Missionary Training
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <i className="bi bi-patch-check-fill" style={{ color: '#2563eb' }}></i>
+                        <i className="bi bi-patch-check-fill" style={{ color: 'var(--accent-gold)' }}></i>
                         Theological Studies (M.Div)
                       </li>
                     </ul>

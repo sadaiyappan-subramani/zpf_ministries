@@ -94,16 +94,16 @@ export default function ZionSongs() {
           <h1>Zion Songs</h1>
           <div className="breadcrumbs">
             <Link to="/">Home</Link>
-            <span style={{ margin: '0 8px', color: '#999' }}>/</span>
-            <span style={{ color: '#333' }}>Zion Songs</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-cosmic)' }}>/</span>
+            <span style={{ color: 'var(--accent-gold)' }}>Zion Songs</span>
           </div>
         </div>
       </div>
 
       {/* Tab Filter Navigation */}
-      <section className="redesign-section light-bg pb-0">
+      <section className="redesign-section pb-0">
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', borderBottom: '1px solid #eaeaea', paddingBottom: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', borderBottom: '1px solid var(--border-gold-light)', paddingBottom: '20px' }}>
             <button
               onClick={() => setActiveTab('new-releases')}
               style={{
@@ -111,8 +111,8 @@ export default function ZionSongs() {
                 border: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: activeTab === 'new-releases' ? '#2563eb' : '#666',
-                borderBottom: activeTab === 'new-releases' ? '3px solid #2563eb' : '3px solid transparent',
+                color: activeTab === 'new-releases' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
+                borderBottom: activeTab === 'new-releases' ? '3px solid var(--accent-gold)' : '3px solid transparent',
                 paddingBottom: '10px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
@@ -127,8 +127,8 @@ export default function ZionSongs() {
                 border: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: activeTab === 'released-songs' ? '#2563eb' : '#666',
-                borderBottom: activeTab === 'released-songs' ? '3px solid #2563eb' : '3px solid transparent',
+                color: activeTab === 'released-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
+                borderBottom: activeTab === 'released-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
                 paddingBottom: '10px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
@@ -143,8 +143,8 @@ export default function ZionSongs() {
                 border: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: activeTab === 'cover-songs' ? '#2563eb' : '#666',
-                borderBottom: activeTab === 'cover-songs' ? '3px solid #2563eb' : '3px solid transparent',
+                color: activeTab === 'cover-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
+                borderBottom: activeTab === 'cover-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
                 paddingBottom: '10px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
@@ -157,7 +157,7 @@ export default function ZionSongs() {
       </section>
 
       {/* Content Render Grid */}
-      <section className="redesign-section light-bg">
+      <section className="redesign-section">
         <div className="container">
 
           {/* TAB 1: NEW RELEASES */}
@@ -181,18 +181,18 @@ export default function ZionSongs() {
                         variants={fadeInUp}
                         style={{ height: '100%' }}
                       >
-                        <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                        <SpotlightCard className="feature-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                           <div className="feature-card-img" style={{ backgroundImage: `url(${coverImg})` }}></div>
-                          <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                          <div className="feature-card-body" style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-gold-light)', borderTop: 'none', color: 'var(--text-cream)', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                             <div style={{ marginBottom: '10px' }}>
-                              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
+                              <span style={{ background: 'rgba(229, 193, 88, 0.1)', color: 'var(--accent-gold)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
                                 {categoryLabel}
                               </span>
                             </div>
-                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '10px' }}>
                               {song.title}
                             </h3>
-                            <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-cosmic)', lineHeight: '1.5', marginBottom: '20px' }}>
                               {descText}
                             </p>
                             <div style={{ marginTop: 'auto' }}>
@@ -203,7 +203,7 @@ export default function ZionSongs() {
                                   alignItems: 'center',
                                   justifyContent: 'center',
                                   gap: '10px',
-                                  background: '#2563eb',
+                                  background: 'var(--gold-metallic)',
                                   border: 'none',
                                   padding: '12px 20px',
                                   borderRadius: '30px',
@@ -211,8 +211,8 @@ export default function ZionSongs() {
                                   cursor: 'pointer',
                                   fontSize: '0.9rem',
                                   fontWeight: 700,
-                                  color: '#fff',
-                                  boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)',
+                                  color: '#050609',
+                                  boxShadow: 'var(--gold-glow)',
                                   transition: 'all 0.2s ease'
                                 }}
                                 onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
@@ -253,18 +253,18 @@ export default function ZionSongs() {
                         variants={fadeInUp}
                         style={{ height: '100%' }}
                       >
-                        <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                        <SpotlightCard className="feature-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                           <div className="feature-card-img" style={{ backgroundImage: `url(${coverImg})` }}></div>
-                          <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                          <div className="feature-card-body" style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-gold-light)', borderTop: 'none', color: 'var(--text-cream)', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                             <div style={{ marginBottom: '10px' }}>
-                              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
+                              <span style={{ background: 'rgba(229, 193, 88, 0.1)', color: 'var(--accent-gold)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
                                 {categoryLabel}
                               </span>
                             </div>
-                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '10px' }}>
                               {song.title}
                             </h3>
-                            <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-cosmic)', lineHeight: '1.5', marginBottom: '20px' }}>
                               {descText}
                             </p>
                             <div style={{ marginTop: 'auto' }}>
@@ -275,7 +275,7 @@ export default function ZionSongs() {
                                   alignItems: 'center',
                                   justifyContent: 'center',
                                   gap: '10px',
-                                  background: '#2563eb',
+                                  background: 'var(--gold-metallic)',
                                   border: 'none',
                                   padding: '12px 20px',
                                   borderRadius: '30px',
@@ -283,8 +283,8 @@ export default function ZionSongs() {
                                   cursor: 'pointer',
                                   fontSize: '0.9rem',
                                   fontWeight: 700,
-                                  color: '#fff',
-                                  boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)',
+                                  color: '#050609',
+                                  boxShadow: 'var(--gold-glow)',
                                   transition: 'all 0.2s ease'
                                 }}
                                 onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
@@ -325,18 +325,18 @@ export default function ZionSongs() {
                         variants={fadeInUp}
                         style={{ height: '100%' }}
                       >
-                        <SpotlightCard className="feature-card" spotlightColor="rgba(37, 99, 235, 0.08)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                        <SpotlightCard className="feature-card" spotlightColor="rgba(229, 193, 88, 0.12)" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                           <div className="feature-card-img" style={{ backgroundImage: `url(${coverImg})` }}></div>
-                          <div className="feature-card-body" style={{ background: '#ffffff', border: '1px solid #eaeaea', borderTop: 'none', color: '#333', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                          <div className="feature-card-body" style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-gold-light)', borderTop: 'none', color: 'var(--text-cream)', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                             <div style={{ marginBottom: '10px' }}>
-                              <span style={{ background: '#eff6ff', color: '#2563eb', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
+                              <span style={{ background: 'rgba(229, 193, 88, 0.1)', color: 'var(--accent-gold)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '20px', textTransform: 'uppercase' }}>
                                 {categoryLabel}
                               </span>
                             </div>
-                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '10px' }}>
                               {cover.title}
                             </h3>
-                            <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: '1.5', marginBottom: '20px' }}>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-cosmic)', lineHeight: '1.5', marginBottom: '20px' }}>
                               {descText}
                             </p>
                             <div style={{ marginTop: 'auto' }}>
@@ -347,7 +347,7 @@ export default function ZionSongs() {
                                   alignItems: 'center',
                                   justifyContent: 'center',
                                   gap: '10px',
-                                  background: '#2563eb',
+                                  background: 'var(--gold-metallic)',
                                   border: 'none',
                                   padding: '12px 20px',
                                   borderRadius: '30px',
@@ -355,8 +355,8 @@ export default function ZionSongs() {
                                   cursor: 'pointer',
                                   fontSize: '0.9rem',
                                   fontWeight: 700,
-                                  color: '#fff',
-                                  boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)',
+                                  color: '#050609',
+                                  boxShadow: 'var(--gold-glow)',
                                   transition: 'all 0.2s ease'
                                 }}
                                 onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
@@ -397,7 +397,7 @@ export default function ZionSongs() {
               exit={{ scale: 0.95 }}
               onClick={e => e.stopPropagation()}
             >
-              <div className="modal-header" style={{ borderBottom: 'none', background: '#111', padding: '10px 20px' }}>
+              <div className="modal-header" style={{ borderBottom: '1px solid var(--border-gold-light)', background: '#0b0c13', padding: '10px 20px' }}>
                 <h3 style={{ margin: 0, color: '#fff', fontSize: '1.1rem' }}>Watching Zion Songs</h3>
                 <button className="btn-close" onClick={() => setSelectedVideo(null)} style={{ color: '#fff' }}>
                   <i className="bi bi-x"></i>
