@@ -3762,6 +3762,15 @@ body.scrolled .header.redesign-header .logo img {
   line-height: 1.6;
 }
 
+.belief-card-scripture {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  margin-top: 12px;
+  font-style: italic;
+  font-weight: 600;
+}
+
 /* Servant Profiles Grid */
 .servants-subheading {
   font-size: 1.6rem;

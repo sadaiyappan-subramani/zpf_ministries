@@ -49,7 +49,7 @@ export default function About() {
       </div>
 
       {/* 2. WHO WE ARE & FOUNDER */}
-      <section className="redesign-section light-bg">
+      <section className="redesign-section">
         <div className="container">
           <div className="row align-items-center gy-5">
 
@@ -62,17 +62,22 @@ export default function About() {
                 variants={staggerContainer}
               >
                 <motion.h2 variants={fadeInUp} style={{ fontSize: '2.4rem', marginBottom: '20px' }}>
-                  Who Are We?
+                  Our Story
                 </motion.h2>
-                <motion.p className="lead" variants={fadeInUp} style={{ fontSize: '1.15rem', color: 'var(--text-cosmic)', marginBottom: '20px', lineHeight: '1.7' }}>
-                  Zion Prayer Fellowship (ZPF Ministries) is a spirit-filled sanctuary dedicated to sharing the gospel, fostering spiritual maturity, and serving the community since its inception.
+                <motion.p className="lead" variants={fadeInUp} style={{ fontSize: '1.1rem', color: 'var(--text-cream)', marginBottom: '20px', lineHeight: '1.8', fontWeight: 500 }}>
+                  Zion Prayer Fellowship (ZPF) was founded in 2002 under intense societal restrictions in Saudi Arabia by Pastor Dhas. Our Fellowship began as a defiant step of faith with just two families and four bachelors. Pastor Dhas was a radical pioneer known for his strict discipline, burning authority, and an absolute refusal to compromise on biblical truth, beautifully balancing this fearless nature with a deeply loving, fatherly heart that embraced all people.
                 </motion.p>
-                <motion.div variants={fadeInUp} style={{ background: 'rgba(37, 99, 235, 0.08)', borderLeft: '4px solid #2563eb', padding: '20px', marginBottom: '20px', borderRadius: '0 8px 8px 0' }}>
-                  <h4 style={{ fontWeight: 800, color: 'var(--text-cream)', marginBottom: '5px' }}>Starting Year</h4>
-                  <p style={{ color: 'var(--accent-gold)', margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>July 2002</p>
+
+                <motion.div variants={fadeInUp} style={{ background: 'rgba(229, 193, 88, 0.08)', borderLeft: '4px solid var(--accent-gold)', padding: '15px 20px', marginBottom: '20px', borderRadius: '0 8px 8px 0' }}>
+                  <h4 style={{ fontWeight: 800, color: 'var(--text-cream)', marginBottom: '5px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Defiant Step of Faith</h4>
+                  <p style={{ color: 'var(--accent-gold)', margin: 0, fontSize: '1.05rem', fontWeight: 700 }}>Founded July 2002 — Saudi Arabia</p>
                 </motion.div>
-                <motion.p variants={fadeInUp} style={{ color: 'var(--text-cosmic)', lineHeight: '1.6' }}>
-                  For over two decades, we have remained committed to preaching the unadulterated word of God, raising foundational generations in truth, and ministering to families throughout Chennai.
+
+                <motion.p variants={fadeInUp} style={{ color: 'var(--text-cosmic)', lineHeight: '1.7', marginBottom: '20px' }}>
+                  Driven by a profound global vision for souls, he heavily supported church-planting ministries across North India and demonstrated legendary resilience—continuing to relentlessly gather believers for worship without ever canceling a single service, even after facing government crackdowns and a three-day imprisonment.
+                </motion.p>
+                <motion.p variants={fadeInUp} style={{ color: 'var(--text-cosmic)', lineHeight: '1.7' }}>
+                  Today, the thriving, vision-driven church stands as an enduring testament to the sacrificial seed he sowed, having evolved into a powerhouse of intercession where the anointing of prayer is so heavy that timers are used to manage continuous worship. Operating on the conviction that radical prayer breaks demonic strongholds and shifts national circumstances, the ministry continues to raise a resilient army of young prayer warriors dedicated to the work of the Gospel.
                 </motion.p>
               </motion.div>
             </div>
@@ -88,7 +93,7 @@ export default function About() {
                 <SpotlightCard className="pastor-family-card" spotlightColor="rgba(229, 193, 88, 0.12)">
                   <img
                     src={dhasPhotos[dhasPhotoIndex]}
-                    alt="Founder Bro. Perinba Dhas and Wife"
+                    alt="Founder Pas. Perinba Dhas and Wife"
                     className="pastor-family-card-img"
                     style={{
                       transition: 'opacity 0.6s ease-in-out',
@@ -98,7 +103,7 @@ export default function About() {
                     }}
                   />
                   <div className="pastor-family-card-body">
-                    <h3 className="pastor-family-card-title">Bro. Perinba Dhas</h3>
+                    <h3 className="pastor-family-card-title">Pas. Perinba Dhas</h3>
                     <p className="pastor-family-card-role">Our Founder & Senior Pastor</p>
                   </div>
                 </SpotlightCard>
@@ -258,7 +263,7 @@ export default function About() {
       </section>
 
       {/* 3. WHAT WE BELIEVE */}
-      <section className="redesign-section gray-bg" id="what-we-believe">
+      <section className="redesign-section" id="what-we-believe">
         <div className="container">
           <div className="redesign-section-header">
             <h2>What We Believe?</h2>
@@ -266,65 +271,119 @@ export default function About() {
           </div>
 
           <div className="belief-grid">
-            {/* Card 1 */}
-            <div className="belief-card">
-              <i className="bi bi-shield-check belief-card-icon"></i>
-              <h3 className="belief-card-title">The Holy Trinity</h3>
-              <p className="belief-card-text">
-                We believe in one God, eternally existing in three distinct persons: Father, Son, and Holy Spirit.
-              </p>
-            </div>
-
-            {/* Card 2 */}
+            {/* Card 1: Holy Scripture */}
             <div className="belief-card">
               <i className="bi bi-book belief-card-icon"></i>
               <h3 className="belief-card-title">Holy Scripture</h3>
               <p className="belief-card-text">
-                We believe the Bible is the inspired, infallible, and authoritative Word of God, our supreme guide in faith and life.
+                We trust the 66 books of the Bible as God’s fully inspired, complete, and authoritative word to humanity.
               </p>
+              <span className="belief-card-scripture">
+                Psalms 19:7, 2 Timothy 3:16-18
+              </span>
             </div>
 
-            {/* Card 3 */}
+            {/* Card 2: The Holy Trinity */}
+            <div className="belief-card">
+              <i className="bi bi-shield-check belief-card-icon"></i>
+              <h3 className="belief-card-title">The Holy Trinity</h3>
+              <p className="belief-card-text">
+                Our faith rests in the one true God, who has revealed Himself from all eternity in three distinct Persons: Father, Son, and Holy Spirit.
+              </p>
+              <span className="belief-card-scripture">
+                Numbers 6:24-26; Matthew 3:16-17; 2 Corinthians 13:14
+              </span>
+            </div>
+
+            {/* Card 3: Jesus Christ */}
             <div className="belief-card">
               <i className="bi bi-heart-pulse belief-card-icon"></i>
-              <h3 className="belief-card-title">Salvation</h3>
+              <h3 className="belief-card-title">Jesus Christ</h3>
               <p className="belief-card-text">
-                Salvation is received through faith alone in Jesus Christ, who died for our sins and was raised for our justification.
+                We believe in the complete divinity and humanity of Jesus Christ: His miraculous virgin birth, His sinless life, and His sacrificial death on our behalf. We believe He physically conquered the grave, ascended to heaven, and will return in person to gather His people.
               </p>
+              <span className="belief-card-scripture">
+                1 Corinthians 15
+              </span>
             </div>
 
-            {/* Card 4 */}
+            {/* Card 4: Fall & Redemption */}
+            <div className="belief-card">
+              <i className="bi bi-person-x belief-card-icon"></i>
+              <h3 className="belief-card-title">Fall & Redemption</h3>
+              <p className="belief-card-text">
+                We believe that apart from God, all people are spiritually dead and completely separated from Him. The only way to receive forgiveness is to turn away from sin and trust completely in the death and resurrection of Jesus Christ.
+              </p>
+              <span className="belief-card-scripture">
+                Isaiah 53:4-12; Romans 3:23, Ephesians 2:5
+              </span>
+            </div>
+
+            {/* Card 5: Water Baptism */}
             <div className="belief-card">
               <i className="bi bi-droplet-half belief-card-icon"></i>
               <h3 className="belief-card-title">Water Baptism</h3>
               <p className="belief-card-text">
-                We practice baptism by immersion in water in the name of the Father, Son, and Holy Spirit as a public testimony of faith.
+                We believe in the Water baptism by full immersion, following the new birth, administered in the name of the Father, the Son, and the Holy Spirit.
               </p>
+              <span className="belief-card-scripture">
+                Ezekiel 36:26-27; Matthew 28:19-20; Mark 16:16
+              </span>
             </div>
 
-            {/* Card 5 */}
+            {/* Card 6: Spiritual Rebirth */}
+            <div className="belief-card">
+              <i className="bi bi-arrow-repeat belief-card-icon"></i>
+              <h3 className="belief-card-title">Spiritual Rebirth</h3>
+              <p className="belief-card-text">
+                We affirm that the Holy Spirit renews our inner being, granting us a spiritual rebirth and making us true children of God.
+              </p>
+              <span className="belief-card-scripture">
+                John 3:3-6; Ephesians 1:13-14; 1 Corinthians 12:13
+              </span>
+            </div>
+
+            {/* Card 7: Justification */}
+            <div className="belief-card">
+              <i className="bi bi-bookmark-check belief-card-icon"></i>
+              <h3 className="belief-card-title">Justification</h3>
+              <p className="belief-card-text">
+                We are justified by faith alone, which inevitably produces good works to God's glory.
+              </p>
+              <span className="belief-card-scripture">
+                Ephesians 2:8-10; 1 Corinthians 10:31
+              </span>
+            </div>
+
+            {/* Card 8: Holy Spirit Power */}
             <div className="belief-card">
               <i className="bi bi-fire belief-card-icon"></i>
-              <h3 className="belief-card-title">Holy Spirit Baptism</h3>
+              <h3 className="belief-card-title">Holy Spirit Power</h3>
               <p className="belief-card-text">
-                We believe in the baptism of the Holy Spirit with the evidence of speaking in tongues, empowering believers for life and service.
+                We believe we must be continually filled with the Holy Spirit to receive the power to witness for Christ through both our words and our lives.
               </p>
+              <span className="belief-card-scripture">
+                Joel 2:28-30; John 16:7-11 & 13-14; Acts 2:38 & 11:15
+              </span>
             </div>
 
-            {/* Card 6 */}
+            {/* Card 9: Eternal Destiny */}
             <div className="belief-card">
               <i className="bi bi-sunrise belief-card-icon"></i>
-              <h3 className="belief-card-title">Second Coming</h3>
+              <h3 className="belief-card-title">Eternal Destiny</h3>
               <p className="belief-card-text">
-                We anticipate the glorious, visible return of our Lord Jesus Christ to establish His kingdom and judge the living and the dead.
+                We believe in the resurrection of all people—believers to eternal life and unbelievers to eternal judgment.
               </p>
+              <span className="belief-card-scripture">
+                Ecclesiastes 12:14; 2 Corinthians 5:10; Hebrews 9:27; Revelation 20:12-13
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* 4. OUR SERVANTS */}
-      <section className="redesign-section light-bg" id="servants">
+      <section className="redesign-section" id="servants">
         <div className="container">
           <div className="redesign-section-header">
             <h2>Our Servants</h2>
