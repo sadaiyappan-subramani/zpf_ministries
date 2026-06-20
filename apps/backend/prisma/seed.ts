@@ -102,15 +102,14 @@ async function main() {
     }
   }
 
-  // 3. Seed Website Content
   const defaultSongs = [
-    { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16' },
-    { id: 'Oi7MXSJbhi4', title: 'HE is my everything ' },
-    { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker' },
-    { id: 'gjWVYjgsbvo', title: 'Siluvaiandai Vaa Maganae (Communion/Good Friday)' },
-    { id: 'G8HSX2oNkOk', title: 'Gethsemanae Poongavinil (Good Friday)' },
-    { id: '1rXDQYK7eyk', title: 'Dayavulla Devan' },
-    { id: '7j3ZrHhGMgk', title: 'Samuvel Pol' }
+    { id: 'gjWVYjgsbvo', title: 'Siluvaiandai Vaa Maganae (Communion/Good Friday Song)', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'G8HSX2oNkOk', title: 'Gethsemanae Poongavinil (Good Friday Song)', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'Oi7MXSJbhi4', title: 'HE is my everything', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: '1rXDQYK7eyk', title: 'Dayavulla devan', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' },
+    { id: '7j3ZrHhGMgk', title: 'Samuvel Pol', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' }
   ];
 
   const defaultServices = [
@@ -256,28 +255,26 @@ async function main() {
     { id: 'C5RPPkk3-Ns', title: 'Maatrumae Ennai Maatrumae' }
   ];
 
+  const defaultKidsSongs = [
+    { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'Oi7MXSJbhi4', title: 'HE is my everything', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker', desc: 'Watch and listen to our newly released original track.', category: 'new release' }
+  ];
+
   const contentsToSeed = [
     { key: 'zion_songs', value: JSON.stringify(defaultSongs) },
     { key: 'casual_covers', value: JSON.stringify(defaultCovers) },
-    { key: 'service_hours', value: JSON.stringify(defaultServices) }
+    { key: 'service_hours', value: JSON.stringify(defaultServices) },
+    { key: 'zion_kids_songs', value: JSON.stringify(defaultKidsSongs) }
   ];
 
   for (const item of contentsToSeed) {
-    const existingContent = await prisma.websiteContent.findUnique({
-      where: { key: item.key }
+    await prisma.websiteContent.upsert({
+      where: { key: item.key },
+      update: { value: item.value },
+      create: { key: item.key, value: item.value }
     });
-
-    if (!existingContent) {
-      await prisma.websiteContent.create({
-        data: {
-          key: item.key,
-          value: item.value
-        }
-      });
-      console.log(`Seeded default website content for key '${item.key}' successfully.`);
-    } else {
-      console.log(`Website content for key '${item.key}' already exists. Skipping.`);
-    }
+    console.log(`Seeded/Updated website content for key '${item.key}' successfully.`);
   }
 }
 

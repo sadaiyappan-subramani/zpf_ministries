@@ -4,41 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import SpotlightCard from '../components/bits/SpotlightCard'
 
 export default function ZionSongs() {
-  const [activeTab, setActiveTab] = useState('new-releases')
+  const [activeTab, setActiveTab] = useState('newly-released-songs')
   const [selectedVideo, setSelectedVideo] = useState(null)
 
   const defaultZionSongs = [
-    { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' },
-    { id: 'Oi7MXSJbhi4', title: 'HE is my everything ', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' },
-    { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' },
-    { id: 'gjWVYjgsbvo', title: 'Siluvaiandai Vaa Maganae (Communion/Good Friday)', desc: 'Watch the gospel video highlight and worship song.', category: 'communion' },
-    { id: 'G8HSX2oNkOk', title: 'Gethsemanae Poongavinil (Good Friday)', desc: 'Watch the gospel video highlight and worship song.', category: 'good friday' },
-    { id: '1rXDQYK7eyk', title: 'Dayavulla Devan', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' },
+    { id: 'gjWVYjgsbvo', title: 'Siluvaiandai Vaa Maganae (Communion/Good Friday Song)', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'G8HSX2oNkOk', title: 'Gethsemanae Poongavinil (Good Friday Song)', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'ahIVNoJZR2k', title: 'Gospel Song on John 3:16', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'Oi7MXSJbhi4', title: 'HE is my everything', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker', desc: 'Watch and listen to our newly released original track.', category: 'new release' },
+    { id: '1rXDQYK7eyk', title: 'Dayavulla devan', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' },
     { id: '7j3ZrHhGMgk', title: 'Samuvel Pol', desc: 'Watch the gospel video highlight and worship song.', category: 'worship' }
   ]
 
-  const defaultCasualCovers = [
-    { id: 'TGjOdhv1Nhw', title: 'Take My Life', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'Mre7sMP4x8s', title: 'Naan Vaalvathu', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'nj8tjql_4_Y', title: 'Bless the LORD oh my Soul', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: '1E7fi6_eqp8', title: 'Chinna Manusanukkulla', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 't1ve4SPQxU4', title: 'He is my Everything', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 's1vUKbApxdw', title: 'Unga Naamam Uyaranum', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'TiPelJY81eQ', title: 'Unga Kirubai', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'Jvk8HFrBrQU', title: 'Aadaram Neerthanaiyya', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'PLDeUIFs_FU', title: 'Saranadaivaen', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: '-BbX46j22V8', title: 'Alangara Vasalalae', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: '3wkXygdy7CQ', title: 'Vaanathilum Intha Boomiyilum', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'WcQ9zZ-9irI', title: 'Um Vasanam En Kangalai', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'OY1kHI-RNac', title: 'Aathumamae En Ullamae', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'QqFkV7mOw9I', title: 'Ennai Alithavarae', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'MYghky75U_Q', title: 'Yehovayeerae', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'fVvbm4wDAQM', title: 'Unga Naamam Uyaranum (Alt)', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' },
-    { id: 'C5RPPkk3-Ns', title: 'Maatrumae Ennai Maatrumae', desc: 'Watch the gospel video highlight and worship song.', category: 'acoustic' }
-  ]
-
   const [zionSongsList, setZionSongsList] = useState(defaultZionSongs)
-  const [casualCoversList, setCasualCoversList] = useState(defaultCasualCovers)
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -56,27 +35,17 @@ export default function ZionSongs() {
       }
     }
 
-    const fetchCovers = async () => {
-      try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
-        const res = await fetch(`${apiUrl}/content/casual_covers`)
-        if (res.ok) {
-          const data = await res.json()
-          if (data && Array.isArray(data)) {
-            setCasualCoversList(data)
-          }
-        }
-      } catch (err) {
-        console.error('Failed to load dynamic casual covers:', err)
-      }
-    }
-
     fetchSongs()
-    fetchCovers()
   }, [])
 
-  // Derived list: Newly released songs are the first 3 original songs
-  const newlyReleasedList = zionSongsList.slice(0, 3)
+  // Song groupings based on IDs
+  const newlyReleasedIds = ['gjWVYjgsbvo', 'G8HSX2oNkOk']
+  const zionKidsIds = ['ahIVNoJZR2k', 'Oi7MXSJbhi4', 'LmegPb_8LY8']
+  const otherSongsIds = ['1rXDQYK7eyk', '7j3ZrHhGMgk']
+
+  const newlyReleasedList = zionSongsList.filter(song => newlyReleasedIds.includes(song.id))
+  const zionKidsList = zionSongsList.filter(song => zionKidsIds.includes(song.id))
+  const otherZionSongsList = zionSongsList.filter(song => otherSongsIds.includes(song.id))
 
   const getYoutubeThumb = (id) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`
 
@@ -103,16 +72,16 @@ export default function ZionSongs() {
       {/* Tab Filter Navigation */}
       <section className="redesign-section pb-0">
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', borderBottom: '1px solid var(--border-gold-light)', paddingBottom: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', borderBottom: '1px solid var(--border-gold-light)', paddingBottom: '20px', flexWrap: 'wrap' }}>
             <button
-              onClick={() => setActiveTab('new-releases')}
+              onClick={() => setActiveTab('newly-released-songs')}
               style={{
                 background: 'none',
                 border: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: activeTab === 'new-releases' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
-                borderBottom: activeTab === 'new-releases' ? '3px solid var(--accent-gold)' : '3px solid transparent',
+                color: activeTab === 'newly-released-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
+                borderBottom: activeTab === 'newly-released-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
                 paddingBottom: '10px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
@@ -121,36 +90,36 @@ export default function ZionSongs() {
               Newly Released Songs
             </button>
             <button
-              onClick={() => setActiveTab('released-songs')}
+              onClick={() => setActiveTab('zion-kids-songs')}
               style={{
                 background: 'none',
                 border: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: activeTab === 'released-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
-                borderBottom: activeTab === 'released-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
+                color: activeTab === 'zion-kids-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
+                borderBottom: activeTab === 'zion-kids-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
                 paddingBottom: '10px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
               }}
             >
-              Songs Released
+              Songs by Zion Kids
             </button>
             <button
-              onClick={() => setActiveTab('cover-songs')}
+              onClick={() => setActiveTab('other-zion-songs')}
               style={{
                 background: 'none',
                 border: 'none',
                 fontSize: '1.1rem',
                 fontWeight: 700,
-                color: activeTab === 'cover-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
-                borderBottom: activeTab === 'cover-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
+                color: activeTab === 'other-zion-songs' ? 'var(--accent-gold)' : 'var(--text-cosmic)',
+                borderBottom: activeTab === 'other-zion-songs' ? '3px solid var(--accent-gold)' : '3px solid transparent',
                 paddingBottom: '10px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
               }}
             >
-              Cover Songs
+              Other Zion Songs
             </button>
           </div>
         </div>
@@ -160,12 +129,12 @@ export default function ZionSongs() {
       <section className="redesign-section">
         <div className="container">
 
-          {/* TAB 1: NEW RELEASES */}
-          {activeTab === 'new-releases' && (
+          {/* TAB 1: NEWLY RELEASED SONGS */}
+          {activeTab === 'newly-released-songs' && (
             <div>
               <div className="redesign-section-header">
-                <h2>Newly Released Tracks</h2>
-                <p>Listen to our latest original gospel singles and translation tracks released recently.</p>
+                <h2>Newly Released Songs</h2>
+                <p>Watch and listen to our newly released original tracks.</p>
               </div>
               <div className="row g-4">
                 {newlyReleasedList.map((song, idx) => {
@@ -232,18 +201,18 @@ export default function ZionSongs() {
             </div>
           )}
 
-          {/* TAB 2: SONGS RELEASED */}
-          {activeTab === 'released-songs' && (
+          {/* TAB 2: SONGS BY ZION KIDS */}
+          {activeTab === 'zion-kids-songs' && (
             <div>
               <div className="redesign-section-header">
-                <h2>Zion Released Albums & Tracks</h2>
-                <p>Browse our complete list of released original worship singles, choir tracks, and translations.</p>
+                <h2>Songs by Zion Kids</h2>
+                <p>Listen and watch songs performed by the Zion Kids team.</p>
               </div>
               <div className="row g-4">
-                {zionSongsList.map((song, idx) => {
+                {zionKidsList.map((song, idx) => {
                   const coverImg = song.cover || (song.id ? getYoutubeThumb(song.id) : '/assets/img/all_ministries.png')
-                  const categoryLabel = song.category || 'worship'
-                  const descText = song.desc || 'Watch the gospel video highlight and worship song.'
+                  const categoryLabel = song.category || 'new release'
+                  const descText = song.desc || 'Watch and listen to our newly released original track.'
                   return (
                     <div className="col-lg-4 col-md-6" key={idx}>
                       <motion.div
@@ -304,18 +273,18 @@ export default function ZionSongs() {
             </div>
           )}
 
-          {/* TAB 3: COVER SONGS */}
-          {activeTab === 'cover-songs' && (
+          {/* TAB 3: OTHER ZION SONGS */}
+          {activeTab === 'other-zion-songs' && (
             <div>
               <div className="redesign-section-header">
-                <h2>Casual Covers & Acoustic Jams</h2>
-                <p>Listen to acoustic sessions, guitar covers, and fellowship worship times recorded casually.</p>
+                <h2>Other Zion Songs</h2>
+                <p>Listen and watch other original gospel and worship releases.</p>
               </div>
               <div className="row g-4">
-                {casualCoversList.map((cover, idx) => {
-                  const coverImg = cover.cover || (cover.id ? getYoutubeThumb(cover.id) : '/assets/img/all_ministries.png')
-                  const categoryLabel = cover.category || 'acoustic cover'
-                  const descText = cover.desc || 'Watch the acoustic cover and praise jam highlight.'
+                {otherZionSongsList.map((song, idx) => {
+                  const coverImg = song.cover || (song.id ? getYoutubeThumb(song.id) : '/assets/img/all_ministries.png')
+                  const categoryLabel = song.category || 'worship'
+                  const descText = song.desc || 'Watch the gospel video highlight and worship song.'
                   return (
                     <div className="col-lg-4 col-md-6" key={idx}>
                       <motion.div
@@ -334,14 +303,14 @@ export default function ZionSongs() {
                               </span>
                             </div>
                             <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-cream)', marginBottom: '10px' }}>
-                              {cover.title}
+                              {song.title}
                             </h3>
                             <p style={{ fontSize: '0.85rem', color: 'var(--text-cosmic)', lineHeight: '1.5', marginBottom: '20px' }}>
                               {descText}
                             </p>
                             <div style={{ marginTop: 'auto' }}>
                               <button
-                                onClick={() => setSelectedVideo(cover.id)}
+                                onClick={() => setSelectedVideo(song.id)}
                                 style={{
                                   display: 'flex',
                                   alignItems: 'center',
