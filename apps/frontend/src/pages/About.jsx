@@ -455,11 +455,11 @@ export default function About() {
                     <h3 className="servants-subheading-centered">Elders</h3>
                     <div className="servants-centered-grid">
                       {[
-                        { name: 'Bro. Alwyn', image: '/assets/img/servants/elder_alwyn.png', role: 'Church Elder' },
-                        { name: 'Bro. Asir', image: '/assets/img/servants/elder_asir.png', role: 'Church Elder' },
-                        { name: 'Bro. Simon', image: '/assets/img/servants/elder_simon.png', role: 'Church Elder' }
+                        { name: 'Bro. Simon', image: '/assets/img/servants/elder_simon.png', role: 'Church Elder' },
+                        { name: 'Bro. Mathew Alwyn', image: '/assets/img/servants/elder_alwyn.png', role: 'Church Elder' },
+                        { name: 'Bro. Asir', image: '/assets/img/servants/elder_asir.png', role: 'Church Elder' }
                       ].map((elder, idx) => (
-                        <div key={idx} className="servant-profile-card">
+                        <div key={idx} className="servant-profile-card elder-card">
                           <div className="servant-profile-img-wrapper">
                             <img src={elder.image} alt={elder.name} className="servant-profile-img" />
                           </div>

@@ -4,34 +4,34 @@
 
 :root {
   --bg-space: #07080d;
-  --bg-cosmic: radial-gradient(circle at 50% 50%, #111221 0%, #050609 100%);
+  --bg-cosmic: radial-gradient(circle at 50% 50%, #1a273b 0%, #050609 100%);
   --bg-glass: rgba(16, 18, 30, 0.7);
-  --border-gold-light: rgba(229, 193, 88, 0.16);
-  --border-gold-focus: rgba(229, 193, 88, 0.65);
-  --gold-metallic: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-  --gold-glow: 0 0 35px rgba(229, 193, 88, 0.28);
+  --border-gold-light: rgba(13, 144, 195, 0.2);
+  --border-gold-focus: rgba(13, 144, 195, 0.85);
+  --gold-metallic: linear-gradient(135deg, #304973 0%, #0d90c3 50%, #2f4973 100%);
+  --gold-glow: 0 0 35px rgba(13, 144, 195, 0.35);
   --text-pure: #ffffff;
   --text-cream: #f5f3eb;
   --text-cosmic: #acb1c4;
   --font-serif: 'Cinzel', serif;
   --font-sans: 'Outfit', sans-serif;
-  --accent-gold: #e5c158;
-  --accent-gold-hover: #f3d57e;
-  --accent-amber: #e67e22;
+  --accent-gold: #0d90c3;
+  --accent-gold-hover: #3cc3f2;
+  --accent-amber: #304973;
 }
 
 body.light-theme {
   --bg-space: #fcfbfa;
   --bg-cosmic: linear-gradient(180deg, #fbfaf8 0%, #eeece6 100%);
   --bg-glass: rgba(255, 255, 255, 0.85);
-  --border-gold-light: rgba(170, 119, 28, 0.2);
-  --border-gold-focus: rgba(170, 119, 28, 0.65);
-  --gold-glow: 0 0 25px rgba(170, 119, 28, 0.12);
+  --border-gold-light: rgba(48, 73, 115, 0.2);
+  --border-gold-focus: rgba(48, 73, 115, 0.85);
+  --gold-glow: 0 0 25px rgba(48, 73, 115, 0.15);
   --text-pure: #0f1013;
   --text-cream: #1e1f24;
   --text-cosmic: #585c70;
-  --accent-gold: #aa771c;
-  --accent-gold-hover: #8f6010;
+  --accent-gold: #304973;
+  --accent-gold-hover: #203250;
 }
 
 body.light-theme::before {
@@ -709,7 +709,7 @@ body.scrolled .header {
 .input-icon {
   position: absolute;
   left: 15px;
-  color: #bf953f !important;
+  color: var(--accent-gold) !important;
   font-size: 1.1rem;
 }
 
@@ -823,7 +823,7 @@ body.scrolled .header {
 
 /* User Gate submit style (solid gold) */
 .login-gate-wrapper .btn-login-submit {
-  background: #b38728;
+  background: var(--accent-gold);
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(179, 135, 40, 0.15);
 }
@@ -911,7 +911,7 @@ body.scrolled .header {
 
 .login-verse-container {
   background: rgba(191, 149, 63, 0.05);
-  border-left: 3px solid #bf953f;
+  border-left: 3px solid var(--accent-gold);
   padding: 12px 16px;
   border-radius: 4px 12px 12px 4px;
   margin: 15px 0 20px;
@@ -942,7 +942,7 @@ body.scrolled .header {
   font-family: var(--font-serif);
   font-size: 0.8rem;
   font-weight: 700;
-  color: #bf953f;
+  color: var(--accent-gold);
   text-align: right;
   margin: 0;
   text-transform: uppercase;
@@ -1202,7 +1202,7 @@ body.scrolled .header {
 
 /* Quote Layout */
 .quote-section blockquote {
-  border-left: 3px solid #bf953f;
+  border-left: 3px solid var(--accent-gold);
   background: rgba(229, 193, 88, 0.03);
   padding: 20px 25px;
   border-radius: 0 20px 20px 0;
@@ -1218,7 +1218,7 @@ body.scrolled .header {
 }
 
 .quote-section blockquote cite {
-  color: #e5c158;
+  color: var(--accent-gold);
   font-weight: 600;
   display: block;
   margin-top: 10px;
@@ -1338,7 +1338,7 @@ body.scrolled .header {
 }
 
 .btn-secondary {
-  border: 2px solid #bf953f;
+  border: 2px solid var(--accent-gold);
   background: transparent;
   color: var(--accent-gold);
   font-weight: 700;
@@ -2482,7 +2482,7 @@ body.scrolled .header.redesign-header .logo img {
   left: 12px;
   right: 12px;
   height: 2px;
-  background: #bf953f;
+  background: var(--accent-gold);
   /* Gold accent matching logo colors */
   transform: scaleX(0);
   transform-origin: right;
@@ -2499,7 +2499,7 @@ body.scrolled .header.redesign-header .logo img {
 }
 
 .header.redesign-header .navmenu>ul>li>a.active {
-  color: #bf953f;
+  color: var(--accent-gold);
 }
 
 .header.redesign-header .navmenu>ul>li>a.active::after {
@@ -3822,6 +3822,17 @@ body.scrolled .header.redesign-header .logo img {
   position: relative;
 }
 
+/* Elders Modifier (Larger image and card) */
+.servant-profile-card.elder-card {
+  width: 280px;
+  padding: 32px 24px;
+}
+
+.servant-profile-card.elder-card .servant-profile-img-wrapper {
+  width: 150px;
+  height: 150px;
+}
+
 .servant-profile-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--gold-glow);
@@ -4620,7 +4631,7 @@ body.scrolled .header.redesign-header .logo img {
 
 .navmenu .dropdown ul a:hover,
 .navmenu .dropdown ul a.active {
-  color: #bf953f !important;
+  color: var(--accent-gold) !important;
   background-color: #fdfaf2 !important;
   padding-left: 28px !important;
   /* Elegant slide-right micro-interaction on hover */
@@ -4813,7 +4824,7 @@ body.scrolled .header.redesign-header .logo img {
 
 /* Login Gates Redirect Links */
 .admin-redirect-link {
-  color: #bf953f !important;
+  color: var(--accent-gold) !important;
   font-size: 0.85rem;
   text-decoration: none;
   font-weight: 600;
