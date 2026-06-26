@@ -56,6 +56,18 @@ export default function Header() {
       </Link>
       <nav className="navmenu align-items-center">
         <ul>
+          {/* HOME LINK */}
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={closeMobileNav}
+              end
+            >
+              Home
+            </NavLink>
+          </li>
+
           {/* ABOUT LINK */}
           <li>
             <NavLink
