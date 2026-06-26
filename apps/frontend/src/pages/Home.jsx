@@ -9,7 +9,7 @@ export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0)
   const heroSlides = [
     {
-      image: '/assets/img/_V5A6544.jpg',
+      image: '/assets/img/bg_slide_1.png',
       tag: 'WELCOME TO ZION PRAYER FELLOWSHIP',
       title: 'ZION PRAYER FELLOWSHIP',
       subtitle: (
@@ -20,7 +20,7 @@ export default function Home() {
       )
     },
     {
-      image: '/assets/img/_V5A6546.jpg',
+      image: '/assets/img/bg_slide_2.png',
       tag: 'OUR VISION',
       title: 'Isaiah 58:12',
       subtitle: (
@@ -31,7 +31,7 @@ export default function Home() {
       )
     },
     {
-      image: '/assets/img/_V5A6557.jpg',
+      image: '/assets/img/bg_slide_3.png',
       tag: 'OUR MISSION',
       title: 'Colossians 1:28',
       subtitle: (
@@ -42,7 +42,7 @@ export default function Home() {
       )
     },
     {
-      image: '/assets/img/_V5A6559.jpg',
+      image: '/assets/img/bg_slide_2.png',
       tag: 'OUR FELLOWSHIP',
       title: 'Our Cell Groups',
       subtitle: (
@@ -53,7 +53,7 @@ export default function Home() {
       )
     },
     {
-      image: '/assets/img/_V5A6562.jpg',
+      image: '/assets/img/bg_slide_4.png',
       tag: 'PRAYER SANCTUARY',
       title: 'Active Prayer Fellowship',
       subtitle: (
@@ -111,38 +111,22 @@ export default function Home() {
 
       {/* 1. HERO SLIDESHOW */}
       <section className="redesign-hero">
-        {/* Background YouTube Video */}
-        <iframe
-          src="https://www.youtube.com/embed/ahIVNoJZR2k?autoplay=1&mute=1&controls=0&loop=1&playlist=ahIVNoJZR2k&start=193&playsinline=1&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3"
-          title="Background Video"
-          frameBorder="0"
-          allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '100vw',
-            height: '56.25vw', /* 16:9 Aspect Ratio */
-            minHeight: '100%',
-            minWidth: '177.77%', /* 16:9 Aspect Ratio */
-            transform: 'translate(-50%, -50%) scale(1.2)',
-            pointerEvents: 'none',
-            zIndex: 0
-          }}
-        />
-
-        {/* Overlay placed over the video */}
-        <div className="redesign-hero-overlay" style={{ zIndex: 1 }}></div>
-
         <div className="redesign-hero-slider" style={{ zIndex: 2 }}>
           {heroSlides.map((slide, idx) => (
             <div
               key={idx}
               className={`redesign-hero-slide ${idx === heroIndex ? 'active' : ''}`}
-              style={{ background: 'transparent' }}
+              style={{
+                backgroundImage: `url(${slide.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
             >
-              <div className="container">
+              {/* Overlay inside each slide under content to correctly dim the background image */}
+              <div className="redesign-hero-overlay" style={{ zIndex: 1 }}></div>
+
+              <div className="container" style={{ zIndex: 2, position: 'relative' }}>
                 <div className="redesign-hero-content">
                   <div className="redesign-hero-tag">{slide.tag}</div>
                   <h1 className="redesign-hero-title" style={{ fontSize: slide.title.length > 25 ? '3rem' : '4rem' }}>
