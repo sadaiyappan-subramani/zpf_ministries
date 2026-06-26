@@ -28,7 +28,6 @@ export default function Footer() {
             <img 
               src="/assets/img/zpf_logo.png" 
               alt="ZPF Ministries Logo" 
-              style={{ filter: 'brightness(0) invert(1)' }}
             />
             <div>ZPF Ministries, Chennai</div>
           </div>

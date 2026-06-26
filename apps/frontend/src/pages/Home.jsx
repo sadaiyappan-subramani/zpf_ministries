@@ -309,13 +309,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SERMONS & CARE CELLS SPLIT GRID */}
+      {/* 5. SERMONS SPLIT GRID */}
       <section id="sermons" className="redesign-section light-bg">
         <div className="container">
-          <div className="feature-row">
+          <div className="feature-row" style={{ display: 'flex', justifyContent: 'center' }}>
             {/* Sermons Card */}
-            <SpotlightCard className="feature-card" spotlightColor="rgba(255, 255, 255, 0.15)">
-              <div className="feature-card-img" style={{ backgroundImage: `url('/assets/img/sermons_card.png')` }}></div>
+            <SpotlightCard className="feature-card" spotlightColor="rgba(255, 255, 255, 0.15)" style={{ maxWidth: '580px', width: '100%' }}>
+              <div className="feature-card-img" style={{ backgroundImage: `url('/assets/img/bg_slide_4.png')` }}></div>
               <div className="feature-card-body blue-bg">
                 <div className="feature-card-header">
                   <h3 className="feature-card-title">Sermons</h3>
@@ -329,112 +329,16 @@ export default function Home() {
                 </Link>
               </div>
             </SpotlightCard>
-
-            {/* Care Cells Card */}
-            <SpotlightCard id="care" className="feature-card" spotlightColor="rgba(255, 255, 255, 0.15)">
-              <div className="feature-card-img" style={{ backgroundImage: `url('/assets/img/care_cells_card.png')` }}></div>
-              <div className="feature-card-body orange-bg">
-                <div className="feature-card-header">
-                  <h3 className="feature-card-title">Care Cells</h3>
-                  <i className="bi bi-house-door-fill feature-card-icon"></i>
-                </div>
-                <p className="feature-card-desc">
-                  Find a home group near you. Small groups meet weekly across Chennai for fellowship, bible study, and mutual encouragement.
-                </p>
-                <Link to="/contact" className="feature-card-link">
-                  Learn more
-                </Link>
-              </div>
-            </SpotlightCard>
           </div>
         </div>
       </section>
 
-      {/* 6. DEEP DIVE BIBLE CLUB BANNER */}
-      <section className="redesign-section pt-0 light-bg">
-        <div className="container">
-          <div className="bible-club-card">
-            <div className="bible-club-img" style={{ backgroundImage: `url('/assets/img/bible_club_banner.png')` }}></div>
-            <div className="bible-club-body">
-              <div className="bible-club-header">
-                <h3 className="bible-club-title">Deep Dive Bible Club</h3>
-                <span className="bible-club-logo">DEEP DIVE</span>
-              </div>
-              <p className="bible-club-desc">
-                Deep Dive Bible Club reaches out to kids and teenagers to explore the bible, ask challenging questions, build lifelong friendships, and discover faith.
-              </p>
-              <Link to="/contact" className="bible-club-btn">
-                Find out more
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 7. THREE CARDS GRID (KIDS, TEENS, YOUNG ADULTS) */}
-      <section className="redesign-section gray-bg">
-        <div className="container">
-          <div className="ministry-row">
-
-            {/* Kids Card */}
-            <SpotlightCard className="ministry-panel" spotlightColor="rgba(255, 255, 255, 0.15)">
-              <div className="ministry-panel-img" style={{ backgroundImage: `url('/assets/img/kids_ministry.png')` }}></div>
-              <div className="ministry-panel-body yellow-bg">
-                <div className="ministry-panel-header">
-                  <h3 className="ministry-panel-title">ZPF Kids</h3>
-                  <i className="bi bi-emoji-smile ministry-panel-icon"></i>
-                </div>
-                <p className="ministry-panel-desc">
-                  A vibrant, fun, and safe space for kids to learn about the bible, play interactive games, and build a strong foundation of faith.
-                </p>
-                <Link to="/contact" className="ministry-panel-link">
-                  Learn more <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </SpotlightCard>
-
-            {/* Teens Card */}
-            <SpotlightCard className="ministry-panel" spotlightColor="rgba(255, 255, 255, 0.15)">
-              <div className="ministry-panel-img" style={{ backgroundImage: `url('/assets/img/teens_ministry.png')` }}></div>
-              <div className="ministry-panel-body purple-bg">
-                <div className="ministry-panel-header">
-                  <h3 className="ministry-panel-title">ZPF Teens</h3>
-                  <i className="bi bi-people-fill ministry-panel-icon"></i>
-                </div>
-                <p className="ministry-panel-desc">
-                  Empowering teens to stand firm in their faith, handle life's challenges, and enjoy amazing fellowship and fun events together.
-                </p>
-                <Link to="/contact" className="ministry-panel-link">
-                  Learn more <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </SpotlightCard>
-
-            {/* Young Adults Card */}
-            <SpotlightCard className="ministry-panel" spotlightColor="rgba(255, 255, 255, 0.15)">
-              <div className="ministry-panel-img" style={{ backgroundImage: `url('/assets/img/young_adults_ministry.png')` }}></div>
-              <div className="ministry-panel-body lime-bg">
-                <div className="ministry-panel-header">
-                  <h3 className="ministry-panel-title">ZPF Young Adults</h3>
-                  <i className="bi bi-person-workspace ministry-panel-icon"></i>
-                </div>
-                <p className="ministry-panel-desc">
-                  Connecting students and professionals for growth sessions, career guidance, service projects, and deep spiritual fellowship.
-                </p>
-                <Link to="/contact" className="ministry-panel-link">
-                  Learn more <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </SpotlightCard>
-
-          </div>
-        </div>
-      </section>
 
       {/* 8. ALL MINISTRIES SECTION */}
       <section className="redesign-section light-bg">
         <div className="container">
-          <div className="all-ministries-card" style={{ backgroundImage: `url('/assets/img/all_ministries.png')` }}>
+          <div className="all-ministries-card" style={{ backgroundImage: `url('/assets/img/all_ministries.jpg')` }}>
             <div className="all-ministries-overlay"></div>
             <div className="all-ministries-content">
               <h3 className="all-ministries-title">All Ministries</h3>

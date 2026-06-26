@@ -55,7 +55,7 @@ const defaultAlbums = [
     title: 'Guest Pastors Visit',
     category: 'church',
     desc: 'Sermons and blessings delivered by visiting evangelists and pastors.',
-    cover: '/assets/img/sermons_card.png'
+    cover: '/assets/img/bg_slide_4.png'
   },
   // Farewells
   {
