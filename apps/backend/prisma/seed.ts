@@ -261,11 +261,17 @@ async function main() {
     { id: 'LmegPb_8LY8', title: 'Way Maker - Miracle Worker', desc: 'Watch and listen to our newly released original track.', category: 'new release' }
   ];
 
+  const defaultAlbums = [
+    { id: 'album1', title: 'Family Retreat', images: ['img1.jpg', 'img2.jpg'] },
+    { id: 'album2', title: 'Community Service', images: ['img3.jpg'] },
+  ];
+
   const contentsToSeed = [
     { key: 'zion_songs', value: JSON.stringify(defaultSongs) },
     { key: 'casual_covers', value: JSON.stringify(defaultCovers) },
     { key: 'service_hours', value: JSON.stringify(defaultServices) },
-    { key: 'zion_kids_songs', value: JSON.stringify(defaultKidsSongs) }
+    { key: 'zion_kids_songs', value: JSON.stringify(defaultKidsSongs) },
+    { key: 'gallery_albums', value: JSON.stringify(defaultAlbums) }
   ];
 
   for (const item of contentsToSeed) {
